@@ -1,0 +1,8 @@
+Change Component Footprint: Designator=D1 Old Footprint=3.2X1.6X1.1 New Footprint=SMLP13BC8TT86
+Change Component Footprint: Designator=Q1 Old Footprint=E3 New Footprint=NVS4409NT1G
+Change Component Footprint: Designator=P1 Old Footprint=HDR2X16 New Footprint=PRPC008DFAN-RC
+Change Component Footprint: Designator=P2 Old Footprint=HDR2X16 New Footprint=PRPC008DFAN-RC
+Change Component Footprint: Designator=S1 Old Footprint=SPST-2 New Footprint=PTS636 SM43 SMTR LFS
+Change Component Comment : Designator=S1 Old Comment=PTS 647 SK38 SMTR2 LFS New Comment=PTS636 SM43 SMTR LFS 
+Change Component Description : Designator=S1 Old Description=Tactile Switch SPST-NO Top Actuated Surface Mount New Description=Tactile Switch SPST-NO Top Actuated Surface Mount 
+
