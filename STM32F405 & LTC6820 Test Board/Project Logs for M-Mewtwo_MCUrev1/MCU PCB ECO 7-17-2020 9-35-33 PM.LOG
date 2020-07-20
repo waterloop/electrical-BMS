@@ -1,0 +1,4 @@
+Removed Pin From Net: NetName=ISO-SPI_N Pin=P2-30
+Removed Pin From Net: NetName=ISO-SPI_P Pin=P2-32
+Added Pin To Net: NetName=ISO-SPI_N Pin=P2-29
+Added Pin To Net: NetName=ISO-SPI_P Pin=P2-31
