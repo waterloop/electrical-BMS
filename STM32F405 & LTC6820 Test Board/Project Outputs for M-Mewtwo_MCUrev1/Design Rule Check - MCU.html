@@ -1,0 +1,699 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html">
+<style type="text/css">
+		h1, h2, h3, h4, h5, h6 {
+			font-family : segoe ui;
+			color : black;
+			background-color : #EDE7D9;
+			padding: 0.3em;
+		}
+
+		h1 {
+			font-size: 1.2em;
+		}		
+
+		h2 {
+			font-size: 1.2em;
+		}
+
+		body {
+			font-family : segoe ui;
+		}
+
+		td, th {
+			padding: 0.5em;
+			text-align : left;
+			width: 10em;
+		}
+		th {
+			background-color : #EEEEEE;
+
+		}
+		th.column1, td.column1 {
+			text-align: left;
+			width : auto;
+		}
+		table {
+			width : 100%;
+			font-size: 0.9em;
+		}
+
+		.DRC_summary_header {
+			padding-bottom : 0.1em;
+			border : 0px solid black;
+			width: 100%;
+			align: left;
+		}
+
+		.DRC_summary_header_col1,
+		.DRC_summary_header_col2, 
+		.DRC_summary_header_col3 {
+			color : black;
+			font-size:100%;
+			padding : 0em;
+			padding-top : 0.2em;
+			padding-bottom 0.2em;
+			border : 0px solid black;
+			vertical-align: top;
+			text-align: left;
+		}
+
+		.DRC_summary_header_col1 {
+			font-weight: bold;
+			width: 8em;
+		}
+
+		.DRC_summary_header_col2 {
+			width: 0.1em;
+		
+		}
+
+		.DRC_summary_header_col3 {
+			width : auto;
+		}
+
+		.header_holder {
+		    Width = 100%;
+		    border = 0px solid green;
+		    padding = 0;
+		}
+
+
+		.front_matter, .front_matter_column1, .front_matter_column2, .front_matter_column3
+		{
+			left : 0;
+			top : 0;
+			padding: 0em;
+			padding-top : 0.1em;
+			border : 0px solid black;
+			width : 100%;
+			vertical-align: top;
+			text-align: left;
+		}
+
+		.front_matter_column1 {
+			width : 8em;
+			font-weight: bold;
+		}
+
+		.front_matter_column2 {
+			width: 0.1em;
+		}
+
+		.front_matter_column3 {
+			width : auto;
+		}
+
+		.total_column1, .total_column {
+			font-weight : bold;
+		}
+		.total_column1 {
+			text-align : left;
+		}
+		.warning, .error {
+			color : red;
+			font-weight : bold;
+		}
+		tr.onmouseout_odd {
+			background-color : #white;
+		}
+		tr.onmouseout_even { 
+			background-color : #FAFAFA;
+		}
+		tr.onmouseover_odd, tr.onmouseover_even { 
+			background-color : #EEEEEE;
+		} 
+		a:link, a:visited, .q a:link,.q a:active,.q {
+			color: #21489e; 
+		}
+		a:link.callback, a:visited.callback { 
+			color: #21489e;
+		}
+		a:link.customize, a:visited.customize {
+			color: #C0C0C0;
+			position: absolute; 
+			right: 10px;
+		}	
+		p.contents_level1 {
+			font-weight : bold;
+			font-size : 110%;
+			margin : 0.5em;
+		}
+		p.contents_level2 {
+			position : relative;
+			left : 20px;
+			margin : 0.5em;
+		}
+	</style><script type="text/javascript">
+		function coordToMils(coord) {
+			var number = coord / 10000;
+			
+			if (number != number.toFixed(3))
+				number = number.toFixed(3);
+
+			return number + 'mil'
+		}
+
+		function coordToMM(coord) {
+			var number = 0.0254 * coord / 10000;
+			
+			if (number != number.toFixed(4))
+				number = number.toFixed(4);
+			
+			return number + 'mm'
+		}
+	
+		function convertCoord(coordNode, units) {
+			for (var i = 0; i < coordNode.childNodes.length; i++) {
+				coordNode.removeChild(coordNode.childNodes[i]);
+			}
+
+			var coord = coordNode.getAttribute('value');
+			if (coord != null) {
+				if (units == 'mm') {
+					textNode = document.createTextNode(coordToMM(coord));
+					coordNode.appendChild(textNode);
+				} else if (units == 'mil') {
+					textNode = document.createTextNode(coordToMils(coord));		
+					coordNode.appendChild(textNode);	
+				}
+			}
+		}
+	
+		function convertUnits(unitNode, units) {
+			for (var i = 0; i < unitNode.childNodes.length; i++) {
+				unitNode.removeChild(unitNode.childNodes[i]);		
+			}
+		
+			textNode = document.createTextNode(units); 
+			unitNode.appendChild(textNode);
+		}
+	
+		function changeUnits(radio_input, units) {
+			if (radio_input.checked) {
+			
+				var elements = document.getElementsByName('coordinate');
+				if (elements) {
+					for (var i = 0; i < elements.length; i++) {
+						convertCoord(elements[i], units);
+					}
+				}
+	
+				var elements = document.getElementsByName('units');
+				if (elements) {
+					for (var i = 0; i < elements.length; i++) {
+						convertUnits(elements[i], units);
+					}
+				}
+			}
+		}
+	</script><title>Design Rule Verification Report</title>
+</head>
+<body onload=""><img ALT="Altium" src="
+			file://C:\Users\Public\Documents\Altium\AD20\Templates\AD_logo.png
+		"><h1>Design Rule Verification Report</h1>
+<table class="header_holder">
+<td class="column1">
+<table class="front_matter">
+<tr class="front_matter">
+<td class="front_matter_column1">Date:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3">7/20/2020</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Time:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3">5:53:11 PM</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Elapsed Time:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3">00:00:02</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Filename:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3"><a href="file:///C:\Users\Owner\Desktop\Waterloop\electrical-BMS\STM32F405 &amp; LTC6820 Test Board\MCU.PcbDoc" class="file"><acronym title="C:\Users\Owner\Desktop\Waterloop\electrical-BMS\STM32F405 &amp; LTC6820 Test Board\MCU.PcbDoc">C:\Users\Owner\Desktop\Waterloop\electrical-BMS\STM32F405 &amp; LTC6820 Test Board\MCU.PcbDoc</acronym></a></td>
+</tr>
+</table>
+</td>
+<td class="column2">
+<table class="DRC_summary_header">
+<tr>
+<td class="DRC_summary_header_col1">Warnings:</td>
+<td class="DRC_summary_header_col2"></td>
+<td class="DRC_summary_header_col3">0</td></tr>
+<tr>
+<td class="DRC_summary_header_col1">Rule Violations:</td>
+<td class="DRC_summary_header_col2"></td>
+<td class="DRC_summary_header_col3" style="color : red">113</td></tr>
+</table>
+</td>
+</table><a name="IDDCYDFJI0PQJBO1CZ5MGMR4UFHMKQT1HKOL3C1MNAVEQRDQSC4C5G"><h2>Summary</h2></a><table>
+<tr>
+<th class="column1">Warnings</th>
+<th class="column2">Count</th>
+</tr>
+<tr>
+<td style="font-weight : bold; text-align : right" class="column1">Total</td>
+<td style="font-weight : bold" class="column2">0</td>
+</tr>
+</table><br><table>
+<tr>
+<th class="column1">Rule Violations</th>
+<th class="column2">Count</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDJ4E4ERNVGT5ALW3MBM4245LESOLYM2F3D5VCXELG0URASLMO5XXO">Clearance Constraint (Gap=0.254mm) (All),(All)</a></td>
+<td class="column2">2</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDIYIJAR1JJFPEBDHOZDXA1RACVFP1NBLXEYV5X4CL5U1ONVHHEO3L">Short-Circuit Constraint (Allowed=No) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#ID0JAQNO5I053DJG2FHOZLQDWXGQGLKSYWJRAWCDF3VIOKRZURRNJ">Un-Routed Net Constraint ( (All) )</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDSYAJ0UNYNDABJGTVYIB4VM4BPF4MPBE1ZLKXFFEPLWHTUMJMV4D">Modified Polygon (Allow modified: No), (Allow shelved: No)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDLJFC1GGB3NILNXMVXY3ZUK2UYAT1POPOMLERYECTRZ0TYIIHV5N">Width Constraint (Min=0.254mm) (Max=0.381mm) (Preferred=0.381mm) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDQZUC1J0TT04KECSRA5X2KRDNKPGEBDN1YLQ2T2NIEEAZXFAHVX0I">Power Plane Connect Rule(Relief Connect )(Expansion=0.508mm) (Conductor Width=0.254mm) (Air Gap=0.254mm) (Entries=4) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDTAM2YNSTCFMZCGJEUBHUOPSUQOLISVQWAGJ2A1NOWA5Y0W1DFO0N">Hole Size Constraint (Min=0.025mm) (Max=2.54mm) (All)</a></td>
+<td class="column2">4</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#ID2BETV34F2PNAI2KOHOA30DCTYDNVCBL5QWMAGNCHYTCEZMU2EOIJ">Hole To Hole Clearance (Gap=0.254mm) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDCOTSCNYGVBHJH5SA5U0LNDOND22N0B5LQ33CWGV0UGBKG3QZIZJ">Minimum Solder Mask Sliver (Gap=0.254mm) (All),(All)</a></td>
+<td class="column2">41</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDLBJXOEBEVTFCF0VHEDLM0IYQZJZ4CYFEPG2DBOFNDQAAB5CEKBVM">Silk To Solder Mask (Clearance=0.254mm) (IsPad),(All)</a></td>
+<td class="column2">64</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#ID0QROPGAW23HJCPZ5JA0AD4NZ2EMQGMFR5OXL0ADMAWT2MX1FDCS">Silk to Silk (Clearance=0.254mm) (All),(All)</a></td>
+<td class="column2">2</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDCDFZMAXWRLYUHJWMXXLHCFDSONPPZCHKZ4DD0PN5HC0YRVB1OR5E">Net Antennae (Tolerance=0mm) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDLT103TSKGDF5IS2XIOQUROXS3D5HGDRDO3VLPXDJUCUFNSGYQFOH">Room SPI-&gt;ISO_SPI (Bounding Region = (25.273mm, 25.273mm, 139.573mm, 69.977mm) (InComponentClass('SPI-&gt;ISO_SPI'))</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDLUJ2ZM5UYP4VNMNMNTRRGQI1KDEO1F51TXXY11OBVPDQFCCE1CIJ">Room STM32 (Bounding Region = (25.146mm, 24.511mm, 125.73mm, 69.977mm) (InComponentClass('STM32'))</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDC1YJEQJGDRE4H5WZJXDKCM51DGRYGS1HCQXEYBI2RSECSOQLGGE">Room MOSFET Control (Bounding Region = (24.511mm, 22.86mm, 117.094mm, 74.041mm) (InComponentClass('MOSFET Control'))</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDHRLQOOEPQ1L5ONP0M3051JZJJPQFKHHKWGS3PAFFH3XOOJQ5BLGD">Room Connectors (Bounding Region = (25.666mm, 21.336mm, 121.539mm, 70.485mm) (InComponentClass('Connectors'))</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDLHT0WHK24GKIFNZMWQZMYXLMCLOLL1CPT5VCLQHDCKVT2Z5SNGML">Height Constraint (Min=0mm) (Max=25.4mm) (Prefered=12.7mm) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr>
+<td style="font-weight : bold; text-align : right" class="column1">Total</td>
+<td style="font-weight : bold" class="column2">113</td>
+</tr>
+</table><br><a name="IDJ4E4ERNVGT5ALW3MBM4245LESOLYM2F3D5VCXELG0URASLMO5XXO"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="rule">Clearance Constraint (Gap=0.254mm) (All),(All)</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Desktop\Waterloop\electrical-BMS\STM32F405 &amp; LTC6820 Test Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1906.58mil|Location2.X=1920.686mil|Location1.Y=2291.224mil|Location2.Y=2305.231mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Desktop\Waterloop\electrical-BMS\STM32F405 &amp; LTC6820 Test Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1906.58mil|Location2.X=1920.686mil|Location1.Y=2291.224mil|Location2.Y=2305.231mil|Absolute=True">Clearance Constraint: (0.212mm &lt; 0.254mm) Between Region (0 hole(s)) Top Layer And Region (0 hole(s)) Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Desktop\Waterloop\electrical-BMS\STM32F405 &amp; LTC6820 Test Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1928.233mil|Location2.X=1942.24mil|Location1.Y=2290.044mil|Location2.Y=2304.15mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Desktop\Waterloop\electrical-BMS\STM32F405 &amp; LTC6820 Test Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1928.233mil|Location2.X=1942.24mil|Location1.Y=2290.044mil|Location2.Y=2304.15mil|Absolute=True">Clearance Constraint: (0.212mm &lt; 0.254mm) Between Region (0 hole(s)) Top Layer And Region (0 hole(s)) Top Layer </acronym></a><br></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br><a name="IDTAM2YNSTCFMZCGJEUBHUOPSUQOLISVQWAGJ2A1NOWA5Y0W1DFO0N"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="rule">Hole Size Constraint (Min=0.025mm) (Max=2.54mm) (All)</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Desktop\Waterloop\electrical-BMS\STM32F405 &amp; LTC6820 Test Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1019.729mil|Location2.X=1190.271mil|Location1.Y=2424.729mil|Location2.Y=2595.271mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Desktop\Waterloop\electrical-BMS\STM32F405 &amp; LTC6820 Test Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1019.729mil|Location2.X=1190.271mil|Location1.Y=2424.729mil|Location2.Y=2595.271mil|Absolute=True">Hole Size Constraint: (4.3mm &gt; 2.54mm) Pad Free-12(2.667mm,38.354mm) on Multi-Layer Actual Hole Size = 4.3mm</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Desktop\Waterloop\electrical-BMS\STM32F405 &amp; LTC6820 Test Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1029.729mil|Location2.X=1200.271mil|Location1.Y=1464.729mil|Location2.Y=1635.271mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Desktop\Waterloop\electrical-BMS\STM32F405 &amp; LTC6820 Test Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1029.729mil|Location2.X=1200.271mil|Location1.Y=1464.729mil|Location2.Y=1635.271mil|Absolute=True">Hole Size Constraint: (4.3mm &gt; 2.54mm) Pad Free-13(2.921mm,13.97mm) on Multi-Layer Actual Hole Size = 4.3mm</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Desktop\Waterloop\electrical-BMS\STM32F405 &amp; LTC6820 Test Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4114.729mil|Location2.X=4285.271mil|Location1.Y=2349.729mil|Location2.Y=2520.271mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Desktop\Waterloop\electrical-BMS\STM32F405 &amp; LTC6820 Test Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4114.729mil|Location2.X=4285.271mil|Location1.Y=2349.729mil|Location2.Y=2520.271mil|Absolute=True">Hole Size Constraint: (4.3mm &gt; 2.54mm) Pad Free-14(81.28mm,36.449mm) on Multi-Layer Actual Hole Size = 4.3mm</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Desktop\Waterloop\electrical-BMS\STM32F405 &amp; LTC6820 Test Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4119.729mil|Location2.X=4290.271mil|Location1.Y=1419.729mil|Location2.Y=1590.271mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Desktop\Waterloop\electrical-BMS\STM32F405 &amp; LTC6820 Test Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=4119.729mil|Location2.X=4290.271mil|Location1.Y=1419.729mil|Location2.Y=1590.271mil|Absolute=True">Hole Size Constraint: (4.3mm &gt; 2.54mm) Pad Free-15(81.407mm,12.827mm) on Multi-Layer Actual Hole Size = 4.3mm</acronym></a><br></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br><a name="IDCOTSCNYGVBHJH5SA5U0LNDOND22N0B5LQ33CWGV0UGBKG3QZIZJ"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="rule">Minimum Solder Mask Sliver (Gap=0.254mm) (All),(All)</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Desktop\Waterloop\electrical-BMS\STM32F405 &amp; LTC6820 Test Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2259.375mil|Location2.X=2270.625mil|Location1.Y=2310.877mil|Location2.Y=2322.127mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Desktop\Waterloop\electrical-BMS\STM32F405 &amp; LTC6820 Test Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2259.375mil|Location2.X=2270.625mil|Location1.Y=2310.877mil|Location2.Y=2322.127mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.197mm &lt; 0.254mm) Between Pad C10-1(32.881mm,34.241mm) on Top Layer And Pad C10-2(31.381mm,34.241mm) on Top Layer [Top Solder] Mask Sliver [0.197mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Desktop\Waterloop\electrical-BMS\STM32F405 &amp; LTC6820 Test Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2447.816mil|Location2.X=2459.066mil|Location1.Y=1713.278mil|Location2.Y=1724.528mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Desktop\Waterloop\electrical-BMS\STM32F405 &amp; LTC6820 Test Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2447.816mil|Location2.X=2459.066mil|Location1.Y=1713.278mil|Location2.Y=1724.528mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.197mm &lt; 0.254mm) Between Pad C1-1(37.719mm,17.51mm) on Top Layer And Pad C1-2(37.719mm,19.01mm) on Top Layer [Top Solder] Mask Sliver [0.197mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Desktop\Waterloop\electrical-BMS\STM32F405 &amp; LTC6820 Test Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1947.816mil|Location2.X=1959.066mil|Location1.Y=1649.375mil|Location2.Y=1660.625mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Desktop\Waterloop\electrical-BMS\STM32F405 &amp; LTC6820 Test Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1947.816mil|Location2.X=1959.066mil|Location1.Y=1649.375mil|Location2.Y=1660.625mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.197mm &lt; 0.254mm) Between Pad C11-1(25.019mm,15.887mm) on Top Layer And Pad C11-2(25.019mm,17.387mm) on Top Layer [Top Solder] Mask Sliver [0.197mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Desktop\Waterloop\electrical-BMS\STM32F405 &amp; LTC6820 Test Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1979.375mil|Location2.X=1990.625mil|Location1.Y=1647.938mil|Location2.Y=1659.188mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Desktop\Waterloop\electrical-BMS\STM32F405 &amp; LTC6820 Test Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1979.375mil|Location2.X=1990.625mil|Location1.Y=1647.938mil|Location2.Y=1659.188mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.124mm &lt; 0.254mm) Between Pad C11-1(25.019mm,15.887mm) on Top Layer And Via (25.019mm,17.399mm) from Top Layer to Bottom Layer [Top Solder] Mask Sliver [0.124mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Desktop\Waterloop\electrical-BMS\STM32F405 &amp; LTC6820 Test Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1774.375mil|Location2.X=1785.625mil|Location1.Y=1652.816mil|Location2.Y=1664.066mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Desktop\Waterloop\electrical-BMS\STM32F405 &amp; LTC6820 Test Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1774.375mil|Location2.X=1785.625mil|Location1.Y=1652.816mil|Location2.Y=1664.066mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.197mm &lt; 0.254mm) Between Pad C12-1(19.062mm,17.526mm) on Top Layer And Pad C12-2(20.562mm,17.526mm) on Top Layer [Top Solder] Mask Sliver [0.197mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Desktop\Waterloop\electrical-BMS\STM32F405 &amp; LTC6820 Test Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3139.375mil|Location2.X=3150.625mil|Location1.Y=2267.816mil|Location2.Y=2279.066mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Desktop\Waterloop\electrical-BMS\STM32F405 &amp; LTC6820 Test Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3139.375mil|Location2.X=3150.625mil|Location1.Y=2267.816mil|Location2.Y=2279.066mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.197mm &lt; 0.254mm) Between Pad C13-1(55.233mm,33.147mm) on Top Layer And Pad C13-2(53.733mm,33.147mm) on Top Layer [Top Solder] Mask Sliver [0.197mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Desktop\Waterloop\electrical-BMS\STM32F405 &amp; LTC6820 Test Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3140.812mil|Location2.X=3152.062mil|Location1.Y=2299.375mil|Location2.Y=2310.625mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Desktop\Waterloop\electrical-BMS\STM32F405 &amp; LTC6820 Test Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3140.812mil|Location2.X=3152.062mil|Location1.Y=2299.375mil|Location2.Y=2310.625mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.124mm &lt; 0.254mm) Between Pad C13-1(55.233mm,33.147mm) on Top Layer And Via (53.721mm,33.147mm) from Top Layer to Bottom Layer [Top Solder] Mask Sliver [0.124mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Desktop\Waterloop\electrical-BMS\STM32F405 &amp; LTC6820 Test Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3109.375mil|Location2.X=3120.625mil|Location1.Y=2263.095mil|Location2.Y=2274.345mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Desktop\Waterloop\electrical-BMS\STM32F405 &amp; LTC6820 Test Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3109.375mil|Location2.X=3120.625mil|Location1.Y=2263.095mil|Location2.Y=2274.345mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.24mm &lt; 0.254mm) Between Pad C13-2(53.733mm,33.147mm) on Top Layer And Via (53.721mm,31.369mm) from Top Layer to Bottom Layer [Top Solder] Mask Sliver [0.24mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Desktop\Waterloop\electrical-BMS\STM32F405 &amp; LTC6820 Test Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2019.375mil|Location2.X=2030.625mil|Location1.Y=1894.755mil|Location2.Y=1906.005mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Desktop\Waterloop\electrical-BMS\STM32F405 &amp; LTC6820 Test Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2019.375mil|Location2.X=2030.625mil|Location1.Y=1894.755mil|Location2.Y=1906.005mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.197mm &lt; 0.254mm) Between Pad C2-1(25.285mm,23.671mm) on Top Layer And Pad C2-2(26.785mm,23.671mm) on Top Layer [Top Solder] Mask Sliver [0.197mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Desktop\Waterloop\electrical-BMS\STM32F405 &amp; LTC6820 Test Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2015.341mil|Location2.X=2026.591mil|Location1.Y=2159.375mil|Location2.Y=2170.625mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Desktop\Waterloop\electrical-BMS\STM32F405 &amp; LTC6820 Test Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2015.341mil|Location2.X=2026.591mil|Location1.Y=2159.375mil|Location2.Y=2170.625mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.197mm &lt; 0.254mm) Between Pad C3-1(26.734mm,28.841mm) on Top Layer And Pad C3-2(26.734mm,30.341mm) on Top Layer [Top Solder] Mask Sliver [0.197mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Desktop\Waterloop\electrical-BMS\STM32F405 &amp; LTC6820 Test Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2023.278mil|Location2.X=2034.528mil|Location1.Y=1817.816mil|Location2.Y=1829.066mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Desktop\Waterloop\electrical-BMS\STM32F405 &amp; LTC6820 Test Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2023.278mil|Location2.X=2034.528mil|Location1.Y=1817.816mil|Location2.Y=1829.066mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.197mm &lt; 0.254mm) Between Pad C4-1(26.884mm,21.717mm) on Top Layer And Pad C4-2(25.384mm,21.717mm) on Top Layer [Top Solder] Mask Sliver [0.197mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Desktop\Waterloop\electrical-BMS\STM32F405 &amp; LTC6820 Test Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2081.917mil|Location2.X=2093.167mil|Location1.Y=1839.375mil|Location2.Y=1850.625mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Desktop\Waterloop\electrical-BMS\STM32F405 &amp; LTC6820 Test Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2081.917mil|Location2.X=2093.167mil|Location1.Y=1839.375mil|Location2.Y=1850.625mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.176mm &lt; 0.254mm) Between Pad C4-1(26.884mm,21.717mm) on Top Layer And Via (28.448mm,21.463mm) from Top Layer to Bottom Layer [Top Solder] Mask Sliver [0.176mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Desktop\Waterloop\electrical-BMS\STM32F405 &amp; LTC6820 Test Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2527.816mil|Location2.X=2539.066mil|Location1.Y=1713.278mil|Location2.Y=1724.528mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Desktop\Waterloop\electrical-BMS\STM32F405 &amp; LTC6820 Test Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2527.816mil|Location2.X=2539.066mil|Location1.Y=1713.278mil|Location2.Y=1724.528mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.197mm &lt; 0.254mm) Between Pad C5-1(39.751mm,19.01mm) on Top Layer And Pad C5-2(39.751mm,17.51mm) on Top Layer [Top Solder] Mask Sliver [0.197mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Desktop\Waterloop\electrical-BMS\STM32F405 &amp; LTC6820 Test Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2559.375mil|Location2.X=2570.625mil|Location1.Y=1714.952mil|Location2.Y=1726.202mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Desktop\Waterloop\electrical-BMS\STM32F405 &amp; LTC6820 Test Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2559.375mil|Location2.X=2570.625mil|Location1.Y=1714.952mil|Location2.Y=1726.202mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.112mm &lt; 0.254mm) Between Pad C5-1(39.751mm,19.01mm) on Top Layer And Via (39.751mm,17.51mm) from Top Layer to Bottom Layer [Top Solder] Mask Sliver [0.112mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Desktop\Waterloop\electrical-BMS\STM32F405 &amp; LTC6820 Test Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2617.816mil|Location2.X=2629.066mil|Location1.Y=2184.375mil|Location2.Y=2195.625mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Desktop\Waterloop\electrical-BMS\STM32F405 &amp; LTC6820 Test Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2617.816mil|Location2.X=2629.066mil|Location1.Y=2184.375mil|Location2.Y=2195.625mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.197mm &lt; 0.254mm) Between Pad C6-1(42.037mm,30.976mm) on Top Layer And Pad C6-2(42.037mm,29.476mm) on Top Layer [Top Solder] Mask Sliver [0.197mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Desktop\Waterloop\electrical-BMS\STM32F405 &amp; LTC6820 Test Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2659.375mil|Location2.X=2670.625mil|Location1.Y=2182.938mil|Location2.Y=2194.188mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Desktop\Waterloop\electrical-BMS\STM32F405 &amp; LTC6820 Test Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2659.375mil|Location2.X=2670.625mil|Location1.Y=2182.938mil|Location2.Y=2194.188mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.124mm &lt; 0.254mm) Between Pad C6-2(42.037mm,29.476mm) on Top Layer And Via (42.291mm,30.988mm) from Top Layer to Bottom Layer [Top Solder] Mask Sliver [0.124mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Desktop\Waterloop\electrical-BMS\STM32F405 &amp; LTC6820 Test Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2683.155mil|Location2.X=2694.405mil|Location1.Y=2159.375mil|Location2.Y=2170.625mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Desktop\Waterloop\electrical-BMS\STM32F405 &amp; LTC6820 Test Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2683.155mil|Location2.X=2694.405mil|Location1.Y=2159.375mil|Location2.Y=2170.625mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.113mm &lt; 0.254mm) Between Pad C6-2(42.037mm,29.476mm) on Top Layer And Via (43.688mm,29.591mm) from Top Layer to Bottom Layer [Top Solder] Mask Sliver [0.113mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Desktop\Waterloop\electrical-BMS\STM32F405 &amp; LTC6820 Test Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2647.816mil|Location2.X=2659.066mil|Location1.Y=2374.375mil|Location2.Y=2385.625mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Desktop\Waterloop\electrical-BMS\STM32F405 &amp; LTC6820 Test Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2647.816mil|Location2.X=2659.066mil|Location1.Y=2374.375mil|Location2.Y=2385.625mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.197mm &lt; 0.254mm) Between Pad C7-1(42.799mm,34.302mm) on Top Layer And Pad C7-2(42.799mm,35.802mm) on Top Layer [Top Solder] Mask Sliver [0.197mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Desktop\Waterloop\electrical-BMS\STM32F405 &amp; LTC6820 Test Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2679.375mil|Location2.X=2690.625mil|Location1.Y=2375.812mil|Location2.Y=2387.062mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Desktop\Waterloop\electrical-BMS\STM32F405 &amp; LTC6820 Test Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2679.375mil|Location2.X=2690.625mil|Location1.Y=2375.812mil|Location2.Y=2387.062mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.124mm &lt; 0.254mm) Between Pad C7-2(42.799mm,35.802mm) on Top Layer And Via (42.799mm,34.29mm) from Top Layer to Bottom Layer [Top Solder] Mask Sliver [0.124mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Desktop\Waterloop\electrical-BMS\STM32F405 &amp; LTC6820 Test Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2892.816mil|Location2.X=2904.066mil|Location1.Y=2374.375mil|Location2.Y=2385.625mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Desktop\Waterloop\electrical-BMS\STM32F405 &amp; LTC6820 Test Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2892.816mil|Location2.X=2904.066mil|Location1.Y=2374.375mil|Location2.Y=2385.625mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.197mm &lt; 0.254mm) Between Pad C8-1(49.022mm,35.802mm) on Top Layer And Pad C8-2(49.022mm,34.302mm) on Top Layer [Top Solder] Mask Sliver [0.197mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Desktop\Waterloop\electrical-BMS\STM32F405 &amp; LTC6820 Test Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2259.375mil|Location2.X=2270.625mil|Location1.Y=2397.816mil|Location2.Y=2409.066mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Desktop\Waterloop\electrical-BMS\STM32F405 &amp; LTC6820 Test Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2259.375mil|Location2.X=2270.625mil|Location1.Y=2397.816mil|Location2.Y=2409.066mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.197mm &lt; 0.254mm) Between Pad C9-1(31.381mm,36.449mm) on Top Layer And Pad C9-2(32.881mm,36.449mm) on Top Layer [Top Solder] Mask Sliver [0.197mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Desktop\Waterloop\electrical-BMS\STM32F405 &amp; LTC6820 Test Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2256.881mil|Location2.X=2270.172mil|Location1.Y=2464.261mil|Location2.Y=2475.511mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Desktop\Waterloop\electrical-BMS\STM32F405 &amp; LTC6820 Test Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2256.881mil|Location2.X=2270.172mil|Location1.Y=2464.261mil|Location2.Y=2475.511mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.183mm &lt; 0.254mm) Between Pad C9-1(31.381mm,36.449mm) on Top Layer And Via (32.385mm,38.1mm) from Top Layer to Bottom Layer [Top Solder] Mask Sliver [0.183mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Desktop\Waterloop\electrical-BMS\STM32F405 &amp; LTC6820 Test Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2269.375mil|Location2.X=2280.625mil|Location1.Y=2463.155mil|Location2.Y=2474.405mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Desktop\Waterloop\electrical-BMS\STM32F405 &amp; LTC6820 Test Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2269.375mil|Location2.X=2280.625mil|Location1.Y=2463.155mil|Location2.Y=2474.405mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.113mm &lt; 0.254mm) Between Pad C9-2(32.881mm,36.449mm) on Top Layer And Via (32.385mm,38.1mm) from Top Layer to Bottom Layer [Top Solder] Mask Sliver [0.113mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Desktop\Waterloop\electrical-BMS\STM32F405 &amp; LTC6820 Test Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2623.564mil|Location2.X=2634.814mil|Location1.Y=1369.375mil|Location2.Y=1380.625mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Desktop\Waterloop\electrical-BMS\STM32F405 &amp; LTC6820 Test Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2623.564mil|Location2.X=2634.814mil|Location1.Y=1369.375mil|Location2.Y=1380.625mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.197mm &lt; 0.254mm) Between Pad D1-1(41.783mm,9.075mm) on Top Layer And Pad D1-2(41.783mm,9.975mm) on Top Layer [Top Solder] Mask Sliver [0.197mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Desktop\Waterloop\electrical-BMS\STM32F405 &amp; LTC6820 Test Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2114.375mil|Location2.X=2125.625mil|Location1.Y=1872.603mil|Location2.Y=1883.853mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Desktop\Waterloop\electrical-BMS\STM32F405 &amp; LTC6820 Test Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2114.375mil|Location2.X=2125.625mil|Location1.Y=1872.603mil|Location2.Y=1883.853mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.215mm &lt; 0.254mm) Between Pad U1-32(28.54mm,22.666mm) on Top Layer And Via (28.448mm,21.463mm) from Top Layer to Bottom Layer [Top Solder] Mask Sliver [0.215mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Desktop\Waterloop\electrical-BMS\STM32F405 &amp; LTC6820 Test Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2454.375mil|Location2.X=2465.625mil|Location1.Y=1840.497mil|Location2.Y=1851.747mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Desktop\Waterloop\electrical-BMS\STM32F405 &amp; LTC6820 Test Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2454.375mil|Location2.X=2465.625mil|Location1.Y=1840.497mil|Location2.Y=1851.747mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.248mm &lt; 0.254mm) Between Pad U1-46(37.04mm,20.666mm) on Top Layer And Via (37.084mm,22.352mm) from Top Layer to Bottom Layer [Top Solder] Mask Sliver [0.248mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Desktop\Waterloop\electrical-BMS\STM32F405 &amp; LTC6820 Test Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2402.604mil|Location2.X=2416.331mil|Location1.Y=2230.264mil|Location2.Y=2241.514mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Desktop\Waterloop\electrical-BMS\STM32F405 &amp; LTC6820 Test Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2402.604mil|Location2.X=2416.331mil|Location1.Y=2230.264mil|Location2.Y=2241.514mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.151mm &lt; 0.254mm) Between Pad U1-5(36.04mm,32.166mm) on Top Layer And Via (35.56mm,30.607mm) from Top Layer to Bottom Layer [Top Solder] Mask Sliver [0.151mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Desktop\Waterloop\electrical-BMS\STM32F405 &amp; LTC6820 Test Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2540.091mil|Location2.X=2551.341mil|Location1.Y=2074.76mil|Location2.Y=2088.371mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Desktop\Waterloop\electrical-BMS\STM32F405 &amp; LTC6820 Test Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2540.091mil|Location2.X=2551.341mil|Location1.Y=2074.76mil|Location2.Y=2088.371mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.162mm &lt; 0.254mm) Between Pad U1-58(40.04mm,27.166mm) on Top Layer And Via (38.481mm,27.686mm) from Top Layer to Bottom Layer [Top Solder] Mask Sliver [0.162mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Desktop\Waterloop\electrical-BMS\STM32F405 &amp; LTC6820 Test Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2540.753mil|Location2.X=2552.003mil|Location1.Y=2084.375mil|Location2.Y=2095.625mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Desktop\Waterloop\electrical-BMS\STM32F405 &amp; LTC6820 Test Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2540.753mil|Location2.X=2552.003mil|Location1.Y=2084.375mil|Location2.Y=2095.625mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.121mm &lt; 0.254mm) Between Pad U1-59(40.04mm,27.666mm) on Top Layer And Via (38.481mm,27.686mm) from Top Layer to Bottom Layer [Top Solder] Mask Sliver [0.121mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Desktop\Waterloop\electrical-BMS\STM32F405 &amp; LTC6820 Test Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2394.375mil|Location2.X=2405.625mil|Location1.Y=2230.753mil|Location2.Y=2242.003mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Desktop\Waterloop\electrical-BMS\STM32F405 &amp; LTC6820 Test Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2394.375mil|Location2.X=2405.625mil|Location1.Y=2230.753mil|Location2.Y=2242.003mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.121mm &lt; 0.254mm) Between Pad U1-6(35.54mm,32.166mm) on Top Layer And Via (35.56mm,30.607mm) from Top Layer to Bottom Layer [Top Solder] Mask Sliver [0.121mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Desktop\Waterloop\electrical-BMS\STM32F405 &amp; LTC6820 Test Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2540.264mil|Location2.X=2551.514mil|Location1.Y=2090.152mil|Location2.Y=2103.854mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Desktop\Waterloop\electrical-BMS\STM32F405 &amp; LTC6820 Test Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2540.264mil|Location2.X=2551.514mil|Location1.Y=2090.152mil|Location2.Y=2103.854mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.151mm &lt; 0.254mm) Between Pad U1-60(40.04mm,28.166mm) on Top Layer And Via (38.481mm,27.686mm) from Top Layer to Bottom Layer [Top Solder] Mask Sliver [0.151mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Desktop\Waterloop\electrical-BMS\STM32F405 &amp; LTC6820 Test Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2539.977mil|Location2.X=2551.227mil|Location1.Y=2133.939mil|Location2.Y=2147.47mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Desktop\Waterloop\electrical-BMS\STM32F405 &amp; LTC6820 Test Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2539.977mil|Location2.X=2551.227mil|Location1.Y=2133.939mil|Location2.Y=2147.47mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.169mm &lt; 0.254mm) Between Pad U1-61(40.04mm,28.666mm) on Top Layer And Via (38.481mm,29.21mm) from Top Layer to Bottom Layer [Top Solder] Mask Sliver [0.169mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Desktop\Waterloop\electrical-BMS\STM32F405 &amp; LTC6820 Test Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2540.753mil|Location2.X=2552.003mil|Location1.Y=2144.375mil|Location2.Y=2155.625mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Desktop\Waterloop\electrical-BMS\STM32F405 &amp; LTC6820 Test Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2540.753mil|Location2.X=2552.003mil|Location1.Y=2144.375mil|Location2.Y=2155.625mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.121mm &lt; 0.254mm) Between Pad U1-62(40.04mm,29.166mm) on Top Layer And Via (38.481mm,29.21mm) from Top Layer to Bottom Layer [Top Solder] Mask Sliver [0.121mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Desktop\Waterloop\electrical-BMS\STM32F405 &amp; LTC6820 Test Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2540.358mil|Location2.X=2551.608mil|Location1.Y=2151.761mil|Location2.Y=2163.011mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Desktop\Waterloop\electrical-BMS\STM32F405 &amp; LTC6820 Test Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2540.358mil|Location2.X=2551.608mil|Location1.Y=2151.761mil|Location2.Y=2163.011mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.145mm &lt; 0.254mm) Between Pad U1-63(40.04mm,29.666mm) on Top Layer And Via (38.481mm,29.21mm) from Top Layer to Bottom Layer [Top Solder] Mask Sliver [0.145mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Desktop\Waterloop\electrical-BMS\STM32F405 &amp; LTC6820 Test Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2384.76mil|Location2.X=2398.341mil|Location1.Y=2230.091mil|Location2.Y=2241.341mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Desktop\Waterloop\electrical-BMS\STM32F405 &amp; LTC6820 Test Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2384.76mil|Location2.X=2398.341mil|Location1.Y=2230.091mil|Location2.Y=2241.341mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.162mm &lt; 0.254mm) Between Pad U1-7(35.04mm,32.166mm) on Top Layer And Via (35.56mm,30.607mm) from Top Layer to Bottom Layer [Top Solder] Mask Sliver [0.162mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Desktop\Waterloop\electrical-BMS\STM32F405 &amp; LTC6820 Test Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1882.733mil|Location2.X=1893.983mil|Location1.Y=2034.375mil|Location2.Y=2045.625mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Desktop\Waterloop\electrical-BMS\STM32F405 &amp; LTC6820 Test Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1882.733mil|Location2.X=1893.983mil|Location1.Y=2034.375mil|Location2.Y=2045.625mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.134mm &lt; 0.254mm) Between Via (21.761mm,26.416mm) from Top Layer to Bottom Layer And Via (23.368mm,26.416mm) from Top Layer to Bottom Layer [Top Solder] Mask Sliver [0.134mm] / [Bottom Solder] Mask Sliver [0.134mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Desktop\Waterloop\electrical-BMS\STM32F405 &amp; LTC6820 Test Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1984.375mil|Location2.X=1995.625mil|Location1.Y=1364.892mil|Location2.Y=1376.142mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Desktop\Waterloop\electrical-BMS\STM32F405 &amp; LTC6820 Test Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1984.375mil|Location2.X=1995.625mil|Location1.Y=1364.892mil|Location2.Y=1376.142mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.076mm &lt; 0.254mm) Between Via (24.384mm,9.271mm) from Top Layer to Bottom Layer And Via (25.908mm,9.551mm) from Top Layer to Bottom Layer [Top Solder] Mask Sliver [0.076mm] / [Bottom Solder] Mask Sliver [0.076mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Desktop\Waterloop\electrical-BMS\STM32F405 &amp; LTC6820 Test Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2044.375mil|Location2.X=2055.625mil|Location1.Y=1368.773mil|Location2.Y=1380.023mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Desktop\Waterloop\electrical-BMS\STM32F405 &amp; LTC6820 Test Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2044.375mil|Location2.X=2055.625mil|Location1.Y=1368.773mil|Location2.Y=1380.023mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.053mm &lt; 0.254mm) Between Via (25.908mm,9.551mm) from Top Layer to Bottom Layer And Via (27.432mm,9.468mm) from Top Layer to Bottom Layer [Top Solder] Mask Sliver [0.053mm] / [Bottom Solder] Mask Sliver [0.053mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Desktop\Waterloop\electrical-BMS\STM32F405 &amp; LTC6820 Test Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2094.375mil|Location2.X=2106.174mil|Location1.Y=1393.255mil|Location2.Y=1404.505mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Desktop\Waterloop\electrical-BMS\STM32F405 &amp; LTC6820 Test Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2094.375mil|Location2.X=2106.174mil|Location1.Y=1393.255mil|Location2.Y=1404.505mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.198mm &lt; 0.254mm) Between Via (27.432mm,9.468mm) from Top Layer to Bottom Layer And Via (28.448mm,10.795mm) from Top Layer to Bottom Layer [Top Solder] Mask Sliver [0.198mm] / [Bottom Solder] Mask Sliver [0.198mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Desktop\Waterloop\electrical-BMS\STM32F405 &amp; LTC6820 Test Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2251.875mil|Location2.X=2263.125mil|Location1.Y=2151.875mil|Location2.Y=2164.261mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Desktop\Waterloop\electrical-BMS\STM32F405 &amp; LTC6820 Test Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2251.875mil|Location2.X=2263.125mil|Location1.Y=2151.875mil|Location2.Y=2164.261mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.183mm &lt; 0.254mm) Between Via (31.242mm,29.845mm) from Top Layer to Bottom Layer And Via (32.639mm,28.956mm) from Top Layer to Bottom Layer [Top Solder] Mask Sliver [0.183mm] / [Bottom Solder] Mask Sliver [0.183mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Desktop\Waterloop\electrical-BMS\STM32F405 &amp; LTC6820 Test Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2509.375mil|Location2.X=2520.625mil|Location1.Y=2114.375mil|Location2.Y=2125.625mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Desktop\Waterloop\electrical-BMS\STM32F405 &amp; LTC6820 Test Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2509.375mil|Location2.X=2520.625mil|Location1.Y=2114.375mil|Location2.Y=2125.625mil|Absolute=True">Minimum Solder Mask Sliver Constraint: (0.051mm &lt; 0.254mm) Between Via (38.481mm,27.686mm) from Top Layer to Bottom Layer And Via (38.481mm,29.21mm) from Top Layer to Bottom Layer [Top Solder] Mask Sliver [0.051mm] / [Bottom Solder] Mask Sliver [0.051mm]</acronym></a><br></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br><a name="IDLBJXOEBEVTFCF0VHEDLM0IYQZJZ4CYFEPG2DBOFNDQAAB5CEKBVM"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="rule">Silk To Solder Mask (Clearance=0.254mm) (IsPad),(All)</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Desktop\Waterloop\electrical-BMS\STM32F405 &amp; LTC6820 Test Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1954.393mil|Location2.X=1962.06mil|Location1.Y=1642.37mil|Location2.Y=1650.037mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Desktop\Waterloop\electrical-BMS\STM32F405 &amp; LTC6820 Test Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1954.393mil|Location2.X=1962.06mil|Location1.Y=1642.37mil|Location2.Y=1650.037mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 0.254mm) Between Pad C11-1(25.019mm,15.887mm) on Top Layer And Text "U2" (21.717mm,16.51mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Desktop\Waterloop\electrical-BMS\STM32F405 &amp; LTC6820 Test Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1951.422mil|Location2.X=1962.672mil|Location1.Y=1700.163mil|Location2.Y=1711.413mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Desktop\Waterloop\electrical-BMS\STM32F405 &amp; LTC6820 Test Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1951.422mil|Location2.X=1962.672mil|Location1.Y=1700.163mil|Location2.Y=1711.413mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.028mm &lt; 0.254mm) Between Pad C11-2(25.019mm,17.387mm) on Top Layer And Text "U2" (21.717mm,16.51mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.028mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Desktop\Waterloop\electrical-BMS\STM32F405 &amp; LTC6820 Test Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2624.388mil|Location2.X=2635.638mil|Location1.Y=2239.97mil|Location2.Y=2251.22mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Desktop\Waterloop\electrical-BMS\STM32F405 &amp; LTC6820 Test Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2624.388mil|Location2.X=2635.638mil|Location1.Y=2239.97mil|Location2.Y=2251.22mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.224mm &lt; 0.254mm) Between Pad C6-1(42.037mm,30.976mm) on Top Layer And Text "C6" (41.148mm,31.877mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.224mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Desktop\Waterloop\electrical-BMS\STM32F405 &amp; LTC6820 Test Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2208.194mil|Location2.X=2219.444mil|Location1.Y=2458.159mil|Location2.Y=2469.409mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Desktop\Waterloop\electrical-BMS\STM32F405 &amp; LTC6820 Test Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2208.194mil|Location2.X=2219.444mil|Location1.Y=2458.159mil|Location2.Y=2469.409mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.062mm &lt; 0.254mm) Between Pad C9-1(31.381mm,36.449mm) on Top Layer And Text "C9" (28.829mm,37.338mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.062mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Desktop\Waterloop\electrical-BMS\STM32F405 &amp; LTC6820 Test Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2627.564mil|Location2.X=2638.814mil|Location1.Y=1400.655mil|Location2.Y=1411.905mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Desktop\Waterloop\electrical-BMS\STM32F405 &amp; LTC6820 Test Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2627.564mil|Location2.X=2638.814mil|Location1.Y=1400.655mil|Location2.Y=1411.905mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.189mm &lt; 0.254mm) Between Pad D1-2(41.783mm,9.975mm) on Top Layer And Track (41.275mm,10.541mm)(42.291mm,10.541mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.189mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Desktop\Waterloop\electrical-BMS\STM32F405 &amp; LTC6820 Test Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1719.375mil|Location2.X=1730.625mil|Location1.Y=1324.382mil|Location2.Y=1335.632mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Desktop\Waterloop\electrical-BMS\STM32F405 &amp; LTC6820 Test Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1719.375mil|Location2.X=1730.625mil|Location1.Y=1324.382mil|Location2.Y=1335.632mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.254mm &lt; 0.254mm) Between Pad P3-1(18.415mm,7.493mm) on Multi-Layer And Track (17.272mm,8.636mm)(19.685mm,8.636mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.254mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Desktop\Waterloop\electrical-BMS\STM32F405 &amp; LTC6820 Test Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1619.375mil|Location2.X=1630.625mil|Location1.Y=1324.382mil|Location2.Y=1335.632mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Desktop\Waterloop\electrical-BMS\STM32F405 &amp; LTC6820 Test Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1619.375mil|Location2.X=1630.625mil|Location1.Y=1324.382mil|Location2.Y=1335.632mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.254mm &lt; 0.254mm) Between Pad P3-2(15.875mm,7.493mm) on Multi-Layer And Track (4.445mm,8.636mm)(17.272mm,8.636mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.254mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Desktop\Waterloop\electrical-BMS\STM32F405 &amp; LTC6820 Test Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1519.375mil|Location2.X=1530.625mil|Location1.Y=1324.382mil|Location2.Y=1335.632mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Desktop\Waterloop\electrical-BMS\STM32F405 &amp; LTC6820 Test Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1519.375mil|Location2.X=1530.625mil|Location1.Y=1324.382mil|Location2.Y=1335.632mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.254mm &lt; 0.254mm) Between Pad P3-3(13.335mm,7.493mm) on Multi-Layer And Track (4.445mm,8.636mm)(17.272mm,8.636mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.254mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Desktop\Waterloop\electrical-BMS\STM32F405 &amp; LTC6820 Test Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1419.375mil|Location2.X=1430.625mil|Location1.Y=1324.382mil|Location2.Y=1335.632mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Desktop\Waterloop\electrical-BMS\STM32F405 &amp; LTC6820 Test Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1419.375mil|Location2.X=1430.625mil|Location1.Y=1324.382mil|Location2.Y=1335.632mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.254mm &lt; 0.254mm) Between Pad P3-4(10.795mm,7.493mm) on Multi-Layer And Track (4.445mm,8.636mm)(17.272mm,8.636mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.254mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Desktop\Waterloop\electrical-BMS\STM32F405 &amp; LTC6820 Test Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1319.375mil|Location2.X=1330.625mil|Location1.Y=1324.382mil|Location2.Y=1335.632mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Desktop\Waterloop\electrical-BMS\STM32F405 &amp; LTC6820 Test Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1319.375mil|Location2.X=1330.625mil|Location1.Y=1324.382mil|Location2.Y=1335.632mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.254mm &lt; 0.254mm) Between Pad P3-5(8.255mm,7.493mm) on Multi-Layer And Track (4.445mm,8.636mm)(17.272mm,8.636mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.254mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Desktop\Waterloop\electrical-BMS\STM32F405 &amp; LTC6820 Test Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1219.375mil|Location2.X=1230.625mil|Location1.Y=1324.382mil|Location2.Y=1335.632mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Desktop\Waterloop\electrical-BMS\STM32F405 &amp; LTC6820 Test Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1219.375mil|Location2.X=1230.625mil|Location1.Y=1324.382mil|Location2.Y=1335.632mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.254mm &lt; 0.254mm) Between Pad P3-6(5.715mm,7.493mm) on Multi-Layer And Track (4.445mm,8.636mm)(17.272mm,8.636mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.254mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Desktop\Waterloop\electrical-BMS\STM32F405 &amp; LTC6820 Test Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3349.368mil|Location2.X=3360.618mil|Location1.Y=2114.375mil|Location2.Y=2125.625mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Desktop\Waterloop\electrical-BMS\STM32F405 &amp; LTC6820 Test Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3349.368mil|Location2.X=3360.618mil|Location1.Y=2114.375mil|Location2.Y=2125.625mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.254mm &lt; 0.254mm) Between Pad P4-1(60.706mm,28.448mm) on Multi-Layer And Track (59.563mm,27.305mm)(59.563mm,29.718mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.254mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Desktop\Waterloop\electrical-BMS\STM32F405 &amp; LTC6820 Test Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3349.368mil|Location2.X=3360.618mil|Location1.Y=2014.375mil|Location2.Y=2025.625mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Desktop\Waterloop\electrical-BMS\STM32F405 &amp; LTC6820 Test Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3349.368mil|Location2.X=3360.618mil|Location1.Y=2014.375mil|Location2.Y=2025.625mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.254mm &lt; 0.254mm) Between Pad P4-2(60.706mm,25.908mm) on Multi-Layer And Track (59.563mm,14.478mm)(59.563mm,27.305mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.254mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Desktop\Waterloop\electrical-BMS\STM32F405 &amp; LTC6820 Test Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3349.368mil|Location2.X=3360.618mil|Location1.Y=1914.375mil|Location2.Y=1925.625mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Desktop\Waterloop\electrical-BMS\STM32F405 &amp; LTC6820 Test Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3349.368mil|Location2.X=3360.618mil|Location1.Y=1914.375mil|Location2.Y=1925.625mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.254mm &lt; 0.254mm) Between Pad P4-3(60.706mm,23.368mm) on Multi-Layer And Track (59.563mm,14.478mm)(59.563mm,27.305mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.254mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Desktop\Waterloop\electrical-BMS\STM32F405 &amp; LTC6820 Test Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3349.368mil|Location2.X=3360.618mil|Location1.Y=1814.375mil|Location2.Y=1825.625mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Desktop\Waterloop\electrical-BMS\STM32F405 &amp; LTC6820 Test Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3349.368mil|Location2.X=3360.618mil|Location1.Y=1814.375mil|Location2.Y=1825.625mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.254mm &lt; 0.254mm) Between Pad P4-4(60.706mm,20.828mm) on Multi-Layer And Track (59.563mm,14.478mm)(59.563mm,27.305mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.254mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Desktop\Waterloop\electrical-BMS\STM32F405 &amp; LTC6820 Test Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3349.368mil|Location2.X=3360.618mil|Location1.Y=1714.375mil|Location2.Y=1725.625mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Desktop\Waterloop\electrical-BMS\STM32F405 &amp; LTC6820 Test Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3349.368mil|Location2.X=3360.618mil|Location1.Y=1714.375mil|Location2.Y=1725.625mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.254mm &lt; 0.254mm) Between Pad P4-5(60.706mm,18.288mm) on Multi-Layer And Track (59.563mm,14.478mm)(59.563mm,27.305mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.254mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Desktop\Waterloop\electrical-BMS\STM32F405 &amp; LTC6820 Test Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3349.368mil|Location2.X=3360.618mil|Location1.Y=1614.375mil|Location2.Y=1625.625mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Desktop\Waterloop\electrical-BMS\STM32F405 &amp; LTC6820 Test Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3349.368mil|Location2.X=3360.618mil|Location1.Y=1614.375mil|Location2.Y=1625.625mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.254mm &lt; 0.254mm) Between Pad P4-6(60.706mm,15.748mm) on Multi-Layer And Track (59.563mm,14.478mm)(59.563mm,27.305mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.254mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Desktop\Waterloop\electrical-BMS\STM32F405 &amp; LTC6820 Test Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1975.595mil|Location2.X=1986.845mil|Location1.Y=2380.595mil|Location2.Y=2391.845mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Desktop\Waterloop\electrical-BMS\STM32F405 &amp; LTC6820 Test Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1975.595mil|Location2.X=1986.845mil|Location1.Y=2380.595mil|Location2.Y=2391.845mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.1mm &lt; 0.254mm) Between Pad R10-1(25.273mm,34.81mm) on Top Layer And Track (24.923mm,35.36mm)(24.923mm,35.76mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.1mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Desktop\Waterloop\electrical-BMS\STM32F405 &amp; LTC6820 Test Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2003.155mil|Location2.X=2014.405mil|Location1.Y=2380.595mil|Location2.Y=2391.845mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Desktop\Waterloop\electrical-BMS\STM32F405 &amp; LTC6820 Test Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2003.155mil|Location2.X=2014.405mil|Location1.Y=2380.595mil|Location2.Y=2391.845mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.1mm &lt; 0.254mm) Between Pad R10-1(25.273mm,34.81mm) on Top Layer And Track (25.623mm,35.36mm)(25.623mm,35.76mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.1mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Desktop\Waterloop\electrical-BMS\STM32F405 &amp; LTC6820 Test Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1975.595mil|Location2.X=1986.845mil|Location1.Y=2408.155mil|Location2.Y=2419.405mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Desktop\Waterloop\electrical-BMS\STM32F405 &amp; LTC6820 Test Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1975.595mil|Location2.X=1986.845mil|Location1.Y=2408.155mil|Location2.Y=2419.405mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.1mm &lt; 0.254mm) Between Pad R10-2(25.273mm,36.31mm) on Top Layer And Track (24.923mm,35.36mm)(24.923mm,35.76mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.1mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Desktop\Waterloop\electrical-BMS\STM32F405 &amp; LTC6820 Test Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2006.003mil|Location2.X=2018.971mil|Location1.Y=2407.947mil|Location2.Y=2419.197mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Desktop\Waterloop\electrical-BMS\STM32F405 &amp; LTC6820 Test Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2006.003mil|Location2.X=2018.971mil|Location1.Y=2407.947mil|Location2.Y=2419.197mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.124mm &lt; 0.254mm) Between Pad R10-2(25.273mm,36.31mm) on Top Layer And Track (25.623mm,35.36mm)(25.623mm,35.76mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.124mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Desktop\Waterloop\electrical-BMS\STM32F405 &amp; LTC6820 Test Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2705.595mil|Location2.X=2716.845mil|Location1.Y=1498.155mil|Location2.Y=1509.405mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Desktop\Waterloop\electrical-BMS\STM32F405 &amp; LTC6820 Test Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2705.595mil|Location2.X=2716.845mil|Location1.Y=1498.155mil|Location2.Y=1509.405mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.1mm &lt; 0.254mm) Between Pad R1-1(43.815mm,13.196mm) on Top Layer And Track (43.465mm,12.246mm)(43.465mm,12.646mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.1mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Desktop\Waterloop\electrical-BMS\STM32F405 &amp; LTC6820 Test Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2736.003mil|Location2.X=2748.972mil|Location1.Y=1497.947mil|Location2.Y=1509.197mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Desktop\Waterloop\electrical-BMS\STM32F405 &amp; LTC6820 Test Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2736.003mil|Location2.X=2748.972mil|Location1.Y=1497.947mil|Location2.Y=1509.197mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.124mm &lt; 0.254mm) Between Pad R1-1(43.815mm,13.196mm) on Top Layer And Track (44.165mm,12.246mm)(44.165mm,12.646mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.124mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Desktop\Waterloop\electrical-BMS\STM32F405 &amp; LTC6820 Test Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2515.595mil|Location2.X=2526.845mil|Location1.Y=2340.595mil|Location2.Y=2351.845mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Desktop\Waterloop\electrical-BMS\STM32F405 &amp; LTC6820 Test Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2515.595mil|Location2.X=2526.845mil|Location1.Y=2340.595mil|Location2.Y=2351.845mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.1mm &lt; 0.254mm) Between Pad R11-1(38.989mm,33.794mm) on Top Layer And Track (38.639mm,34.344mm)(38.639mm,34.744mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.1mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Desktop\Waterloop\electrical-BMS\STM32F405 &amp; LTC6820 Test Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2543.155mil|Location2.X=2554.405mil|Location1.Y=2340.595mil|Location2.Y=2351.845mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Desktop\Waterloop\electrical-BMS\STM32F405 &amp; LTC6820 Test Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2543.155mil|Location2.X=2554.405mil|Location1.Y=2340.595mil|Location2.Y=2351.845mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.1mm &lt; 0.254mm) Between Pad R11-1(38.989mm,33.794mm) on Top Layer And Track (39.339mm,34.344mm)(39.339mm,34.744mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.1mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Desktop\Waterloop\electrical-BMS\STM32F405 &amp; LTC6820 Test Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2515.595mil|Location2.X=2526.845mil|Location1.Y=2368.155mil|Location2.Y=2379.405mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Desktop\Waterloop\electrical-BMS\STM32F405 &amp; LTC6820 Test Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2515.595mil|Location2.X=2526.845mil|Location1.Y=2368.155mil|Location2.Y=2379.405mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.1mm &lt; 0.254mm) Between Pad R11-2(38.989mm,35.294mm) on Top Layer And Track (38.639mm,34.344mm)(38.639mm,34.744mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.1mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Desktop\Waterloop\electrical-BMS\STM32F405 &amp; LTC6820 Test Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2546.003mil|Location2.X=2558.971mil|Location1.Y=2367.947mil|Location2.Y=2379.197mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Desktop\Waterloop\electrical-BMS\STM32F405 &amp; LTC6820 Test Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2546.003mil|Location2.X=2558.971mil|Location1.Y=2367.947mil|Location2.Y=2379.197mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.124mm &lt; 0.254mm) Between Pad R11-2(38.989mm,35.294mm) on Top Layer And Track (39.339mm,34.344mm)(39.339mm,34.744mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.124mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Desktop\Waterloop\electrical-BMS\STM32F405 &amp; LTC6820 Test Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2705.595mil|Location2.X=2716.845mil|Location1.Y=1470.595mil|Location2.Y=1481.845mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Desktop\Waterloop\electrical-BMS\STM32F405 &amp; LTC6820 Test Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2705.595mil|Location2.X=2716.845mil|Location1.Y=1470.595mil|Location2.Y=1481.845mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.1mm &lt; 0.254mm) Between Pad R1-2(43.815mm,11.696mm) on Top Layer And Track (43.465mm,12.246mm)(43.465mm,12.646mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.1mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Desktop\Waterloop\electrical-BMS\STM32F405 &amp; LTC6820 Test Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2733.155mil|Location2.X=2744.405mil|Location1.Y=1470.595mil|Location2.Y=1481.845mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Desktop\Waterloop\electrical-BMS\STM32F405 &amp; LTC6820 Test Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2733.155mil|Location2.X=2744.405mil|Location1.Y=1470.595mil|Location2.Y=1481.845mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.1mm &lt; 0.254mm) Between Pad R1-2(43.815mm,11.696mm) on Top Layer And Track (44.165mm,12.246mm)(44.165mm,12.646mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.1mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Desktop\Waterloop\electrical-BMS\STM32F405 &amp; LTC6820 Test Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1980.595mil|Location2.X=1991.845mil|Location1.Y=1540.595mil|Location2.Y=1551.845mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Desktop\Waterloop\electrical-BMS\STM32F405 &amp; LTC6820 Test Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1980.595mil|Location2.X=1991.845mil|Location1.Y=1540.595mil|Location2.Y=1551.845mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.1mm &lt; 0.254mm) Between Pad R2-1(24.65mm,14.224mm) on Top Layer And Track (25.2mm,13.874mm)(25.6mm,13.874mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.1mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Desktop\Waterloop\electrical-BMS\STM32F405 &amp; LTC6820 Test Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1980.595mil|Location2.X=1991.845mil|Location1.Y=1568.155mil|Location2.Y=1579.405mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Desktop\Waterloop\electrical-BMS\STM32F405 &amp; LTC6820 Test Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1980.595mil|Location2.X=1991.845mil|Location1.Y=1568.155mil|Location2.Y=1579.405mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.1mm &lt; 0.254mm) Between Pad R2-1(24.65mm,14.224mm) on Top Layer And Track (25.2mm,14.574mm)(25.6mm,14.574mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.1mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Desktop\Waterloop\electrical-BMS\STM32F405 &amp; LTC6820 Test Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2037.682mil|Location2.X=2048.932mil|Location1.Y=1533.012mil|Location2.Y=1544.262mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Desktop\Waterloop\electrical-BMS\STM32F405 &amp; LTC6820 Test Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2037.682mil|Location2.X=2048.932mil|Location1.Y=1533.012mil|Location2.Y=1544.262mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.185mm &lt; 0.254mm) Between Pad R2-2(26.15mm,14.224mm) on Top Layer And Text "R2" (26.416mm,11.938mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.185mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Desktop\Waterloop\electrical-BMS\STM32F405 &amp; LTC6820 Test Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2008.155mil|Location2.X=2019.405mil|Location1.Y=1540.595mil|Location2.Y=1551.845mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Desktop\Waterloop\electrical-BMS\STM32F405 &amp; LTC6820 Test Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2008.155mil|Location2.X=2019.405mil|Location1.Y=1540.595mil|Location2.Y=1551.845mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.1mm &lt; 0.254mm) Between Pad R2-2(26.15mm,14.224mm) on Top Layer And Track (25.2mm,13.874mm)(25.6mm,13.874mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.1mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Desktop\Waterloop\electrical-BMS\STM32F405 &amp; LTC6820 Test Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2007.947mil|Location2.X=2019.197mil|Location1.Y=1569.33mil|Location2.Y=1582.253mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Desktop\Waterloop\electrical-BMS\STM32F405 &amp; LTC6820 Test Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2007.947mil|Location2.X=2019.197mil|Location1.Y=1569.33mil|Location2.Y=1582.253mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.124mm &lt; 0.254mm) Between Pad R2-2(26.15mm,14.224mm) on Top Layer And Track (25.2mm,14.574mm)(25.6mm,14.574mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.124mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Desktop\Waterloop\electrical-BMS\STM32F405 &amp; LTC6820 Test Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1668.155mil|Location2.X=1679.405mil|Location1.Y=1470.595mil|Location2.Y=1481.845mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Desktop\Waterloop\electrical-BMS\STM32F405 &amp; LTC6820 Test Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1668.155mil|Location2.X=1679.405mil|Location1.Y=1470.595mil|Location2.Y=1481.845mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.1mm &lt; 0.254mm) Between Pad R3-1(17.514mm,12.446mm) on Top Layer And Track (16.564mm,12.096mm)(16.964mm,12.096mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.1mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Desktop\Waterloop\electrical-BMS\STM32F405 &amp; LTC6820 Test Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1667.947mil|Location2.X=1679.197mil|Location1.Y=1499.33mil|Location2.Y=1512.253mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Desktop\Waterloop\electrical-BMS\STM32F405 &amp; LTC6820 Test Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1667.947mil|Location2.X=1679.197mil|Location1.Y=1499.33mil|Location2.Y=1512.253mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.124mm &lt; 0.254mm) Between Pad R3-1(17.514mm,12.446mm) on Top Layer And Track (16.564mm,12.796mm)(16.964mm,12.796mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.124mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Desktop\Waterloop\electrical-BMS\STM32F405 &amp; LTC6820 Test Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1640.595mil|Location2.X=1651.845mil|Location1.Y=1470.595mil|Location2.Y=1481.845mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Desktop\Waterloop\electrical-BMS\STM32F405 &amp; LTC6820 Test Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1640.595mil|Location2.X=1651.845mil|Location1.Y=1470.595mil|Location2.Y=1481.845mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.1mm &lt; 0.254mm) Between Pad R3-2(16.014mm,12.446mm) on Top Layer And Track (16.564mm,12.096mm)(16.964mm,12.096mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.1mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Desktop\Waterloop\electrical-BMS\STM32F405 &amp; LTC6820 Test Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1640.595mil|Location2.X=1651.845mil|Location1.Y=1498.155mil|Location2.Y=1509.405mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Desktop\Waterloop\electrical-BMS\STM32F405 &amp; LTC6820 Test Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1640.595mil|Location2.X=1651.845mil|Location1.Y=1498.155mil|Location2.Y=1509.405mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.1mm &lt; 0.254mm) Between Pad R3-2(16.014mm,12.446mm) on Top Layer And Track (16.564mm,12.796mm)(16.964mm,12.796mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.1mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Desktop\Waterloop\electrical-BMS\STM32F405 &amp; LTC6820 Test Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1543.155mil|Location2.X=1554.405mil|Location1.Y=1475.595mil|Location2.Y=1486.845mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Desktop\Waterloop\electrical-BMS\STM32F405 &amp; LTC6820 Test Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1543.155mil|Location2.X=1554.405mil|Location1.Y=1475.595mil|Location2.Y=1486.845mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.1mm &lt; 0.254mm) Between Pad R4-1(14.339mm,12.573mm) on Top Layer And Track (13.389mm,12.223mm)(13.789mm,12.223mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.1mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Desktop\Waterloop\electrical-BMS\STM32F405 &amp; LTC6820 Test Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1542.947mil|Location2.X=1554.197mil|Location1.Y=1504.33mil|Location2.Y=1517.253mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Desktop\Waterloop\electrical-BMS\STM32F405 &amp; LTC6820 Test Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1542.947mil|Location2.X=1554.197mil|Location1.Y=1504.33mil|Location2.Y=1517.253mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.124mm &lt; 0.254mm) Between Pad R4-1(14.339mm,12.573mm) on Top Layer And Track (13.389mm,12.923mm)(13.789mm,12.923mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.124mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Desktop\Waterloop\electrical-BMS\STM32F405 &amp; LTC6820 Test Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1515.595mil|Location2.X=1526.845mil|Location1.Y=1475.595mil|Location2.Y=1486.845mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Desktop\Waterloop\electrical-BMS\STM32F405 &amp; LTC6820 Test Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1515.595mil|Location2.X=1526.845mil|Location1.Y=1475.595mil|Location2.Y=1486.845mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.1mm &lt; 0.254mm) Between Pad R4-2(12.839mm,12.573mm) on Top Layer And Track (13.389mm,12.223mm)(13.789mm,12.223mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.1mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Desktop\Waterloop\electrical-BMS\STM32F405 &amp; LTC6820 Test Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1515.595mil|Location2.X=1526.845mil|Location1.Y=1503.155mil|Location2.Y=1514.405mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Desktop\Waterloop\electrical-BMS\STM32F405 &amp; LTC6820 Test Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1515.595mil|Location2.X=1526.845mil|Location1.Y=1503.155mil|Location2.Y=1514.405mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.1mm &lt; 0.254mm) Between Pad R4-2(12.839mm,12.573mm) on Top Layer And Track (13.389mm,12.923mm)(13.789mm,12.923mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.1mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Desktop\Waterloop\electrical-BMS\STM32F405 &amp; LTC6820 Test Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1660.595mil|Location2.X=1671.845mil|Location1.Y=1585.595mil|Location2.Y=1596.845mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Desktop\Waterloop\electrical-BMS\STM32F405 &amp; LTC6820 Test Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1660.595mil|Location2.X=1671.845mil|Location1.Y=1585.595mil|Location2.Y=1596.845mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.1mm &lt; 0.254mm) Between Pad R5-1(17.272mm,14.617mm) on Top Layer And Track (16.922mm,15.167mm)(16.922mm,15.567mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.1mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Desktop\Waterloop\electrical-BMS\STM32F405 &amp; LTC6820 Test Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1688.155mil|Location2.X=1699.405mil|Location1.Y=1585.595mil|Location2.Y=1596.845mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Desktop\Waterloop\electrical-BMS\STM32F405 &amp; LTC6820 Test Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1688.155mil|Location2.X=1699.405mil|Location1.Y=1585.595mil|Location2.Y=1596.845mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.1mm &lt; 0.254mm) Between Pad R5-1(17.272mm,14.617mm) on Top Layer And Track (17.622mm,15.167mm)(17.622mm,15.567mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.1mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Desktop\Waterloop\electrical-BMS\STM32F405 &amp; LTC6820 Test Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1660.595mil|Location2.X=1671.845mil|Location1.Y=1613.155mil|Location2.Y=1624.405mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Desktop\Waterloop\electrical-BMS\STM32F405 &amp; LTC6820 Test Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1660.595mil|Location2.X=1671.845mil|Location1.Y=1613.155mil|Location2.Y=1624.405mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.1mm &lt; 0.254mm) Between Pad R5-2(17.272mm,16.117mm) on Top Layer And Track (16.922mm,15.167mm)(16.922mm,15.567mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.1mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Desktop\Waterloop\electrical-BMS\STM32F405 &amp; LTC6820 Test Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1691.003mil|Location2.X=1703.971mil|Location1.Y=1612.947mil|Location2.Y=1624.197mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Desktop\Waterloop\electrical-BMS\STM32F405 &amp; LTC6820 Test Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1691.003mil|Location2.X=1703.971mil|Location1.Y=1612.947mil|Location2.Y=1624.197mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.124mm &lt; 0.254mm) Between Pad R5-2(17.272mm,16.117mm) on Top Layer And Track (17.622mm,15.167mm)(17.622mm,15.567mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.124mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Desktop\Waterloop\electrical-BMS\STM32F405 &amp; LTC6820 Test Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3153.155mil|Location2.X=3164.405mil|Location1.Y=2215.595mil|Location2.Y=2226.845mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Desktop\Waterloop\electrical-BMS\STM32F405 &amp; LTC6820 Test Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3153.155mil|Location2.X=3164.405mil|Location1.Y=2215.595mil|Location2.Y=2226.845mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.1mm &lt; 0.254mm) Between Pad R6-1(55.233mm,31.369mm) on Top Layer And Track (54.283mm,31.019mm)(54.683mm,31.019mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.1mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Desktop\Waterloop\electrical-BMS\STM32F405 &amp; LTC6820 Test Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3152.947mil|Location2.X=3164.197mil|Location1.Y=2244.33mil|Location2.Y=2257.253mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Desktop\Waterloop\electrical-BMS\STM32F405 &amp; LTC6820 Test Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3152.947mil|Location2.X=3164.197mil|Location1.Y=2244.33mil|Location2.Y=2257.253mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.124mm &lt; 0.254mm) Between Pad R6-1(55.233mm,31.369mm) on Top Layer And Track (54.283mm,31.719mm)(54.683mm,31.719mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.124mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Desktop\Waterloop\electrical-BMS\STM32F405 &amp; LTC6820 Test Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3125.595mil|Location2.X=3136.845mil|Location1.Y=2215.595mil|Location2.Y=2226.845mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Desktop\Waterloop\electrical-BMS\STM32F405 &amp; LTC6820 Test Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3125.595mil|Location2.X=3136.845mil|Location1.Y=2215.595mil|Location2.Y=2226.845mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.1mm &lt; 0.254mm) Between Pad R6-2(53.733mm,31.369mm) on Top Layer And Track (54.283mm,31.019mm)(54.683mm,31.019mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.1mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Desktop\Waterloop\electrical-BMS\STM32F405 &amp; LTC6820 Test Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3125.595mil|Location2.X=3136.845mil|Location1.Y=2243.155mil|Location2.Y=2254.405mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Desktop\Waterloop\electrical-BMS\STM32F405 &amp; LTC6820 Test Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3125.595mil|Location2.X=3136.845mil|Location1.Y=2243.155mil|Location2.Y=2254.405mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.1mm &lt; 0.254mm) Between Pad R6-2(53.733mm,31.369mm) on Top Layer And Track (54.283mm,31.719mm)(54.683mm,31.719mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.1mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Desktop\Waterloop\electrical-BMS\STM32F405 &amp; LTC6820 Test Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2495.595mil|Location2.X=2506.845mil|Location1.Y=1448.155mil|Location2.Y=1459.405mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Desktop\Waterloop\electrical-BMS\STM32F405 &amp; LTC6820 Test Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2495.595mil|Location2.X=2506.845mil|Location1.Y=1448.155mil|Location2.Y=1459.405mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.1mm &lt; 0.254mm) Between Pad R7-1(38.481mm,11.926mm) on Top Layer And Track (38.131mm,10.976mm)(38.131mm,11.376mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.1mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Desktop\Waterloop\electrical-BMS\STM32F405 &amp; LTC6820 Test Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2526.003mil|Location2.X=2538.972mil|Location1.Y=1447.947mil|Location2.Y=1459.197mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Desktop\Waterloop\electrical-BMS\STM32F405 &amp; LTC6820 Test Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2526.003mil|Location2.X=2538.972mil|Location1.Y=1447.947mil|Location2.Y=1459.197mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.124mm &lt; 0.254mm) Between Pad R7-1(38.481mm,11.926mm) on Top Layer And Track (38.831mm,10.976mm)(38.831mm,11.376mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.124mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Desktop\Waterloop\electrical-BMS\STM32F405 &amp; LTC6820 Test Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2495.595mil|Location2.X=2506.845mil|Location1.Y=1420.595mil|Location2.Y=1431.845mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Desktop\Waterloop\electrical-BMS\STM32F405 &amp; LTC6820 Test Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2495.595mil|Location2.X=2506.845mil|Location1.Y=1420.595mil|Location2.Y=1431.845mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.1mm &lt; 0.254mm) Between Pad R7-2(38.481mm,10.426mm) on Top Layer And Track (38.131mm,10.976mm)(38.131mm,11.376mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.1mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Desktop\Waterloop\electrical-BMS\STM32F405 &amp; LTC6820 Test Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2523.155mil|Location2.X=2534.405mil|Location1.Y=1420.595mil|Location2.Y=1431.845mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Desktop\Waterloop\electrical-BMS\STM32F405 &amp; LTC6820 Test Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2523.155mil|Location2.X=2534.405mil|Location1.Y=1420.595mil|Location2.Y=1431.845mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.1mm &lt; 0.254mm) Between Pad R7-2(38.481mm,10.426mm) on Top Layer And Track (38.831mm,10.976mm)(38.831mm,11.376mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.1mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Desktop\Waterloop\electrical-BMS\STM32F405 &amp; LTC6820 Test Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1830.595mil|Location2.X=1841.845mil|Location1.Y=2380.595mil|Location2.Y=2391.845mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Desktop\Waterloop\electrical-BMS\STM32F405 &amp; LTC6820 Test Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1830.595mil|Location2.X=1841.845mil|Location1.Y=2380.595mil|Location2.Y=2391.845mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.1mm &lt; 0.254mm) Between Pad R8-1(21.59mm,34.81mm) on Top Layer And Track (21.24mm,35.36mm)(21.24mm,35.76mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.1mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Desktop\Waterloop\electrical-BMS\STM32F405 &amp; LTC6820 Test Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1858.155mil|Location2.X=1869.405mil|Location1.Y=2380.595mil|Location2.Y=2391.845mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Desktop\Waterloop\electrical-BMS\STM32F405 &amp; LTC6820 Test Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1858.155mil|Location2.X=1869.405mil|Location1.Y=2380.595mil|Location2.Y=2391.845mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.1mm &lt; 0.254mm) Between Pad R8-1(21.59mm,34.81mm) on Top Layer And Track (21.94mm,35.36mm)(21.94mm,35.76mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.1mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Desktop\Waterloop\electrical-BMS\STM32F405 &amp; LTC6820 Test Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1830.595mil|Location2.X=1841.845mil|Location1.Y=2408.155mil|Location2.Y=2419.405mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Desktop\Waterloop\electrical-BMS\STM32F405 &amp; LTC6820 Test Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1830.595mil|Location2.X=1841.845mil|Location1.Y=2408.155mil|Location2.Y=2419.405mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.1mm &lt; 0.254mm) Between Pad R8-2(21.59mm,36.31mm) on Top Layer And Track (21.24mm,35.36mm)(21.24mm,35.76mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.1mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Desktop\Waterloop\electrical-BMS\STM32F405 &amp; LTC6820 Test Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1861.003mil|Location2.X=1873.971mil|Location1.Y=2407.947mil|Location2.Y=2419.197mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Desktop\Waterloop\electrical-BMS\STM32F405 &amp; LTC6820 Test Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1861.003mil|Location2.X=1873.971mil|Location1.Y=2407.947mil|Location2.Y=2419.197mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.124mm &lt; 0.254mm) Between Pad R8-2(21.59mm,36.31mm) on Top Layer And Track (21.94mm,35.36mm)(21.94mm,35.76mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.124mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Desktop\Waterloop\electrical-BMS\STM32F405 &amp; LTC6820 Test Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1900.595mil|Location2.X=1911.845mil|Location1.Y=2380.595mil|Location2.Y=2391.845mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Desktop\Waterloop\electrical-BMS\STM32F405 &amp; LTC6820 Test Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1900.595mil|Location2.X=1911.845mil|Location1.Y=2380.595mil|Location2.Y=2391.845mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.1mm &lt; 0.254mm) Between Pad R9-1(23.368mm,34.81mm) on Top Layer And Track (23.018mm,35.36mm)(23.018mm,35.76mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.1mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Desktop\Waterloop\electrical-BMS\STM32F405 &amp; LTC6820 Test Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1928.155mil|Location2.X=1939.405mil|Location1.Y=2380.595mil|Location2.Y=2391.845mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Desktop\Waterloop\electrical-BMS\STM32F405 &amp; LTC6820 Test Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1928.155mil|Location2.X=1939.405mil|Location1.Y=2380.595mil|Location2.Y=2391.845mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.1mm &lt; 0.254mm) Between Pad R9-1(23.368mm,34.81mm) on Top Layer And Track (23.718mm,35.36mm)(23.718mm,35.76mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.1mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Desktop\Waterloop\electrical-BMS\STM32F405 &amp; LTC6820 Test Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1900.595mil|Location2.X=1911.845mil|Location1.Y=2408.155mil|Location2.Y=2419.405mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Desktop\Waterloop\electrical-BMS\STM32F405 &amp; LTC6820 Test Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1900.595mil|Location2.X=1911.845mil|Location1.Y=2408.155mil|Location2.Y=2419.405mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.1mm &lt; 0.254mm) Between Pad R9-2(23.368mm,36.31mm) on Top Layer And Track (23.018mm,35.36mm)(23.018mm,35.76mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.1mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Desktop\Waterloop\electrical-BMS\STM32F405 &amp; LTC6820 Test Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1931.003mil|Location2.X=1943.971mil|Location1.Y=2407.947mil|Location2.Y=2419.197mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Desktop\Waterloop\electrical-BMS\STM32F405 &amp; LTC6820 Test Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=1931.003mil|Location2.X=1943.971mil|Location1.Y=2407.947mil|Location2.Y=2419.197mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.124mm &lt; 0.254mm) Between Pad R9-2(23.368mm,36.31mm) on Top Layer And Track (23.718mm,35.36mm)(23.718mm,35.76mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.124mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Desktop\Waterloop\electrical-BMS\STM32F405 &amp; LTC6820 Test Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2991.151mil|Location2.X=2998.817mil|Location1.Y=2455.694mil|Location2.Y=2463.361mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Desktop\Waterloop\electrical-BMS\STM32F405 &amp; LTC6820 Test Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2991.151mil|Location2.X=2998.817mil|Location1.Y=2455.694mil|Location2.Y=2463.361mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (Collision &lt; 0.254mm) Between Pad S1-2(51.399mm,36.322mm) on Top Layer And Text "C8" (48.133mm,36.83mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Desktop\Waterloop\electrical-BMS\STM32F405 &amp; LTC6820 Test Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2190.46mil|Location2.X=2201.71mil|Location1.Y=2286.906mil|Location2.Y=2298.156mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Desktop\Waterloop\electrical-BMS\STM32F405 &amp; LTC6820 Test Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2190.46mil|Location2.X=2201.71mil|Location1.Y=2286.906mil|Location2.Y=2298.156mil|Absolute=True">Silk To Solder Mask Clearance Constraint: (0.13mm &lt; 0.254mm) Between Pad U1-16(30.54mm,32.166mm) on Top Layer And Text "U1" (28.321mm,33.02mm) on Top Overlay [Top Overlay] to [Top Solder] clearance [0.13mm]</acronym></a><br></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br><a name="ID0QROPGAW23HJCPZ5JA0AD4NZ2EMQGMFR5OXL0ADMAWT2MX1FDCS"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="rule">Silk to Silk (Clearance=0.254mm) (All),(All)</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Desktop\Waterloop\electrical-BMS\STM32F405 &amp; LTC6820 Test Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2607.256mil|Location2.X=2618.506mil|Location1.Y=2257.795mil|Location2.Y=2269.045mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Desktop\Waterloop\electrical-BMS\STM32F405 &amp; LTC6820 Test Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2607.256mil|Location2.X=2618.506mil|Location1.Y=2257.795mil|Location2.Y=2269.045mil|Absolute=True">Silk To Silk Clearance Constraint: (0.117mm &lt; 0.254mm) Between Arc (40.005mm,31.877mm) on Top Overlay And Text "C6" (41.148mm,31.877mm) on Top Overlay Silk Text to Silk Clearance [0.117mm]</acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Desktop\Waterloop\electrical-BMS\STM32F405 &amp; LTC6820 Test Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3369.354mil|Location2.X=3380.604mil|Location1.Y=2264.37mil|Location2.Y=2275.62mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\Users\Owner\Desktop\Waterloop\electrical-BMS\STM32F405 &amp; LTC6820 Test Board\MCU.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=3369.354mil|Location2.X=3380.604mil|Location1.Y=2264.37mil|Location2.Y=2275.62mil|Absolute=True">Silk To Silk Clearance Constraint: (0.001mm &lt; 0.254mm) Between Text "C13" (56.77mm,32.385mm) on Top Overlay And Text "P4" (59.69mm,30.607mm) on Top Overlay Silk Text to Silk Clearance [0.001mm]</acronym></a><br></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br></body>
+</html>

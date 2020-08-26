@@ -1,0 +1,61 @@
+Removed Pin From Net: NetName=GND Pin=P3-1
+Removed Pin From Net: NetName=GND Pin=P3-2
+Removed Pin From Net: NetName=3V3 Pin=P3-3
+Removed Pin From Net: NetName=3V3 Pin=P3-4
+Removed Pin From Net: NetName=12V Pin=P3-5
+Removed Pin From Net: NetName=12V Pin=P3-6
+Removed Member From Class: ClassName=Connectors Member=P3
+Change Component Description : Designator=Y1 Old Description=8MHz ±20ppm Crystal 12pF 300 Ohms 2-SMD, No Lead New Description=8MHz ±20ppm Crystal 12pF 300 Ohms 2-SMD, No Lead 
+
+Change Component Description : Designator=C9 Old Description=C0805C103K8RAC7800. 10000pF ±10% 10V Ceramic Capacitor X7R 0805 (2012 Metric) New Description=C0805C103K8RAC7800. 10000pF ±10% 10V Ceramic Capacitor X7R 0805 (2012 Metric) 
+
+Change Component Description : Designator=C11 Old Description=C0805C103K8RAC7800. 10000pF ±10% 10V Ceramic Capacitor X7R 0805 (2012 Metric) New Description=C0805C103K8RAC7800. 10000pF ±10% 10V Ceramic Capacitor X7R 0805 (2012 Metric) 
+
+Change Component Description : Designator=C12 Old Description=C0805C103K8RAC7800. 10000pF ±10% 10V Ceramic Capacitor X7R 0805 (2012 Metric) New Description=C0805C103K8RAC7800. 10000pF ±10% 10V Ceramic Capacitor X7R 0805 (2012 Metric) 
+
+Change Component Description : Designator=C3 Old Description=C0805C104K8RACTU. 0.1µF ±10% 10V Ceramic Capacitor X7R 0805 (2012 Metric) New Description=C0805C104K8RACTU. 0.1µF ±10% 10V Ceramic Capacitor X7R 0805 (2012 Metric) 
+
+Change Component Description : Designator=C4 Old Description=C0805C104K8RACTU. 0.1µF ±10% 10V Ceramic Capacitor X7R 0805 (2012 Metric) New Description=C0805C104K8RACTU. 0.1µF ±10% 10V Ceramic Capacitor X7R 0805 (2012 Metric) 
+
+Change Component Description : Designator=C5 Old Description=C0805C104K8RACTU. 0.1µF ±10% 10V Ceramic Capacitor X7R 0805 (2012 Metric) New Description=C0805C104K8RACTU. 0.1µF ±10% 10V Ceramic Capacitor X7R 0805 (2012 Metric) 
+
+Change Component Description : Designator=C6 Old Description=C0805C104K8RACTU. 0.1µF ±10% 10V Ceramic Capacitor X7R 0805 (2012 Metric) New Description=C0805C104K8RACTU. 0.1µF ±10% 10V Ceramic Capacitor X7R 0805 (2012 Metric) 
+
+Change Component Description : Designator=C13 Old Description=C0805C104K8RACTU. 0.1µF ±10% 10V Ceramic Capacitor X7R 0805 (2012 Metric) New Description=C0805C104K8RACTU. 0.1µF ±10% 10V Ceramic Capacitor X7R 0805 (2012 Metric) 
+
+Change Component Description : Designator=C1 Old Description=C0805C225K8RACAUTO. 2.2µF ±10% 10V Ceramic Capacitor X7R 0805 (2012 Metric) New Description=C0805C225K8RACAUTO. 2.2µF ±10% 10V Ceramic Capacitor X7R 0805 (2012 Metric) 
+
+Change Component Description : Designator=C2 Old Description=C0805C225K8RACAUTO. 2.2µF ±10% 10V Ceramic Capacitor X7R 0805 (2012 Metric) New Description=C0805C225K8RACAUTO. 2.2µF ±10% 10V Ceramic Capacitor X7R 0805 (2012 Metric) 
+
+Change Component Description : Designator=C7 Old Description=CBR08C409B5GAC New Description=CBR08C409B5GAC. 4pF ±0.1pF 50V Ceramic Capacitor C0G, NP0 0805 (2012 Metric)
+Change Component Description : Designator=C10 Old Description=CL21B105KPFNNNE. 1µF ±10% 10V Ceramic Capacitor X7R 0805 (2012 Metric) New Description=CL21B105KPFNNNE. 1µF ±10% 10V Ceramic Capacitor X7R 0805 (2012 Metric) 
+
+Change Component Description : Designator=R1 Old Description=ERJ-3GEYJ103V. 10 kOhms ±5% 0.1W, 1/10W Chip Resistor 0603 (1608 Metric) Automotive AEC-Q200 Thick Film New Description=ERJ-3GEYJ103V. 10 kOhms ±5% 0.1W, 1/10W Chip Resistor 0603 (1608 Metric) Automotive AEC-Q200 Thick Film 
+
+
+Change Component Description : Designator=R6 Old Description=ERJ-3GEYJ103V. 10 kOhms ±5% 0.1W, 1/10W Chip Resistor 0603 (1608 Metric) Automotive AEC-Q200 Thick Film New Description=ERJ-3GEYJ103V. 10 kOhms ±5% 0.1W, 1/10W Chip Resistor 0603 (1608 Metric) Automotive AEC-Q200 Thick Film 
+
+
+Change Component Description : Designator=R7 Old Description=ERJ-PA3J202V. 2 kOhms ±5% 0.25W, 1/4W Chip Resistor 0603 (1608 Metric) Automotive AEC-Q200, Pulse Withstanding Thick Film New Description=ERJ-PA3J202V. 2 kOhms ±5% 0.25W, 1/4W Chip Resistor 0603 (1608 Metric) Automotive AEC-Q200, Pulse Withstanding Thick Film 
+
+
+Change Component Description : Designator=R11 Old Description=Generic 0603 resistor New Description=ERJ-U030R00V. 0 Ohms Jumper 0.1W, 1/10W Chip Resistor 0603 (1608 Metric) Anti-Sulfur, Automotive AEC-Q200 Thick Film
+Change Component Description : Designator=R4 Old Description=RC0603FR-071KL .1 kOhms ±1% 0.1W, 1/10W Chip Resistor 0603 (1608 Metric) Moisture Resistant Thick Film New Description=RC0603FR-071KL .1 kOhms ±1% 0.1W, 1/10W Chip Resistor 0603 (1608 Metric) Moisture Resistant Thick Film 
+
+
+Change Component Description : Designator=R5 Old Description=RC0603FR-07120RL. 120 Ohms ±1% 0.1W, 1/10W Chip Resistor 0603 (1608 Metric) Moisture Resistant Thick Film New Description=RC0603FR-07120RL. 120 Ohms ±1% 0.1W, 1/10W Chip Resistor 0603 (1608 Metric) Moisture Resistant Thick Film 
+
+
+Change Component Description : Designator=R8 Old Description=RC0603FR-07120RL. 120 Ohms ±1% 0.1W, 1/10W Chip Resistor 0603 (1608 Metric) Moisture Resistant Thick Film New Description=RC0603FR-07120RL. 120 Ohms ±1% 0.1W, 1/10W Chip Resistor 0603 (1608 Metric) Moisture Resistant Thick Film 
+
+
+Change Component Description : Designator=R9 Old Description=RC0603FR-07120RL. 120 Ohms ±1% 0.1W, 1/10W Chip Resistor 0603 (1608 Metric) Moisture Resistant Thick Film New Description=RC0603FR-07120RL. 120 Ohms ±1% 0.1W, 1/10W Chip Resistor 0603 (1608 Metric) Moisture Resistant Thick Film 
+
+
+Change Component Description : Designator=R10 Old Description=RC0603FR-07120RL. 120 Ohms ±1% 0.1W, 1/10W Chip Resistor 0603 (1608 Metric) Moisture Resistant Thick Film New Description=RC0603FR-07120RL. 120 Ohms ±1% 0.1W, 1/10W Chip Resistor 0603 (1608 Metric) Moisture Resistant Thick Film 
+
+
+Change Component Description : Designator=R2 Old Description=RMCF0603FT3K00. 3 kOhms ±1% 0.1W, 1/10W Chip Resistor 0603 (1608 Metric) Automotive AEC-Q200 Thick Film New Description=RMCF0603FT3K00. 3 kOhms ±1% 0.1W, 1/10W Chip Resistor 0603 (1608 Metric) Automotive AEC-Q200 Thick Film 
+
+Change Component Description : Designator=R3 Old Description=RMCF0603FT3K00. 3 kOhms ±1% 0.1W, 1/10W Chip Resistor 0603 (1608 Metric) Automotive AEC-Q200 Thick Film New Description=RMCF0603FT3K00. 3 kOhms ±1% 0.1W, 1/10W Chip Resistor 0603 (1608 Metric) Automotive AEC-Q200 Thick Film 
+

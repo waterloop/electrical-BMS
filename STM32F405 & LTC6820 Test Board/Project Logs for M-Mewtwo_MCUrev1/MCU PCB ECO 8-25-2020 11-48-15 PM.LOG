@@ -1,0 +1,8 @@
+Removed Pin From Net: NetName=GND Pin=C15-1
+Removed Pin From Net: NetName=3V3 Pin=C15-2
+Added Pin To Net: NetName=3V3 Pin=C15-1
+Added Pin To Net: NetName=5V Pin=C15-2
+Added Room: Name=Connectors
+Added Room: Name=MOSFET Control
+Added Room: Name=SPI->ISO_SPI
+Added Room: Name=STM32
