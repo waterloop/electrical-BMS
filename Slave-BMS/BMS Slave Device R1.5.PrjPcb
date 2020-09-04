@@ -43,23 +43,6 @@ ReleaseFolderPath=[OutputPath]
 ReleaseZipPath=[OutputPath][ProjectName].zip
 
 [Document1]
-DocumentPath=..\..\waterloop_electrical\BMS Slave Device R1.5\Monitoring IC.SchDoc
-AnnotationEnabled=1
-AnnotateStartValue=1
-AnnotationIndexControlEnabled=0
-AnnotateSuffix=
-AnnotateScope=All
-AnnotateOrder=1
-DoLibraryUpdate=1
-DoDatabaseUpdate=1
-ClassGenCCAutoEnabled=1
-ClassGenCCAutoRoomEnabled=1
-ClassGenNCAutoScope=None
-DItemRevisionGUID=
-GenerateClassCluster=0
-DocumentUniqueId=MNIYIYNB
-
-[Document2]
 DocumentPath=BMS Slave Device R1.5.PcbDoc
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -76,7 +59,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=PYVENFEO
 
-[Document3]
+[Document2]
 DocumentPath=BMS Slave Device R1.5.PcbLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -93,7 +76,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=
 
-[Document4]
+[Document3]
 DocumentPath=BMS Slave Device R1.5.SchDoc
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -110,7 +93,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=
 
-[Document5]
+[Document4]
 DocumentPath=BMS Slave Device R1.5.SchLib
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -125,9 +108,9 @@ ClassGenCCAutoRoomEnabled=1
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
-DocumentUniqueId=
+DocumentUniqueId=IVUYDFUN
 
-[Document6]
+[Document5]
 DocumentPath=Monitoring IC.SchDoc
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -144,7 +127,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=
 
-[Document7]
+[Document6]
 DocumentPath=Voltage Sensing.SchDoc
 AnnotationEnabled=1
 AnnotateStartValue=1
