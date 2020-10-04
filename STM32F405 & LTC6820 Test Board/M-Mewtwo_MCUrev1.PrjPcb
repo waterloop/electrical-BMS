@@ -1,4 +1,4 @@
-﻿[Design]
+[Design]
 Version=1.0
 HierarchyMode=0
 ChannelRoomNamingStyle=0
@@ -123,23 +123,6 @@ GenerateClassCluster=0
 DocumentUniqueId=FQLUPNXR
 
 [Document6]
-DocumentPath=MOSFET.SchDoc
-AnnotationEnabled=1
-AnnotateStartValue=1
-AnnotationIndexControlEnabled=0
-AnnotateSuffix=
-AnnotateScope=All
-AnnotateOrder=3
-DoLibraryUpdate=1
-DoDatabaseUpdate=1
-ClassGenCCAutoEnabled=1
-ClassGenCCAutoRoomEnabled=1
-ClassGenNCAutoScope=None
-DItemRevisionGUID=
-GenerateClassCluster=0
-DocumentUniqueId=AIHBKSIC
-
-[Document7]
 DocumentPath=STM32405RG.Harness
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -156,7 +139,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=
 
-[Document8]
+[Document7]
 DocumentPath=MCU.PcbDoc
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -173,7 +156,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=VCLXRLWV
 
-[Document9]
+[Document8]
 DocumentPath=ISO_SPI.SchDoc
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -190,7 +173,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=QQJNCXLF
 
-[Document10]
+[Document9]
 DocumentPath=ISO_SPI.Harness
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -207,7 +190,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=
 
-[Document11]
+[Document10]
 DocumentPath=M-Mewtwo_MCUrev1.OutJob
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -224,7 +207,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=
 
-[Document12]
+[Document11]
 DocumentPath=Headers.Harness
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -241,7 +224,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=
 
-[Document13]
+[Document12]
 DocumentPath=JLCPCB.OutJob
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -260,166 +243,6 @@ DocumentUniqueId=
 
 [GeneratedDocument1]
 DocumentPath=Project Outputs for M-Mewtwo_MCUrev1\Design Rule Check - MCU.html
-DItemRevisionGUID=
-
-[GeneratedDocument2]
-DocumentPath=Project Outputs for M-Mewtwo_MCUrev1\Master BMS STM32 RFQ\MCU.DRR
-DItemRevisionGUID=
-
-[GeneratedDocument3]
-DocumentPath=Project Outputs for M-Mewtwo_MCUrev1\RFQ\MCU.DRR
-DItemRevisionGUID=
-
-[GeneratedDocument4]
-DocumentPath=Project Outputs for M-Mewtwo_MCUrev1\Master BMS STM32 RFQ\MCU.EXTREP
-DItemRevisionGUID=
-
-[GeneratedDocument5]
-DocumentPath=Project Outputs for M-Mewtwo_MCUrev1\RFQ\MCU.EXTREP
-DItemRevisionGUID=
-
-[GeneratedDocument6]
-DocumentPath=Project Outputs for M-Mewtwo_MCUrev1\Master BMS STM32 RFQ\MCU.GBL
-DItemRevisionGUID=
-
-[GeneratedDocument7]
-DocumentPath=Project Outputs for M-Mewtwo_MCUrev1\RFQ\MCU.GBL
-DItemRevisionGUID=
-
-[GeneratedDocument8]
-DocumentPath=Project Outputs for M-Mewtwo_MCUrev1\Master BMS STM32 RFQ\MCU.GBO
-DItemRevisionGUID=
-
-[GeneratedDocument9]
-DocumentPath=Project Outputs for M-Mewtwo_MCUrev1\RFQ\MCU.GBO
-DItemRevisionGUID=
-
-[GeneratedDocument10]
-DocumentPath=Project Outputs for M-Mewtwo_MCUrev1\Master BMS STM32 RFQ\MCU.GBP
-DItemRevisionGUID=
-
-[GeneratedDocument11]
-DocumentPath=Project Outputs for M-Mewtwo_MCUrev1\RFQ\MCU.GBP
-DItemRevisionGUID=
-
-[GeneratedDocument12]
-DocumentPath=Project Outputs for M-Mewtwo_MCUrev1\Master BMS STM32 RFQ\MCU.GBS
-DItemRevisionGUID=
-
-[GeneratedDocument13]
-DocumentPath=Project Outputs for M-Mewtwo_MCUrev1\RFQ\MCU.GBS
-DItemRevisionGUID=
-
-[GeneratedDocument14]
-DocumentPath=Project Outputs for M-Mewtwo_MCUrev1\Master BMS STM32 RFQ\MCU.GKO
-DItemRevisionGUID=
-
-[GeneratedDocument15]
-DocumentPath=Project Outputs for M-Mewtwo_MCUrev1\RFQ\MCU.GKO
-DItemRevisionGUID=
-
-[GeneratedDocument16]
-DocumentPath=Project Outputs for M-Mewtwo_MCUrev1\Master BMS STM32 RFQ\MCU.GM1
-DItemRevisionGUID=
-
-[GeneratedDocument17]
-DocumentPath=Project Outputs for M-Mewtwo_MCUrev1\RFQ\MCU.GM1
-DItemRevisionGUID=
-
-[GeneratedDocument18]
-DocumentPath=Project Outputs for M-Mewtwo_MCUrev1\Master BMS STM32 RFQ\MCU.GM13
-DItemRevisionGUID=
-
-[GeneratedDocument19]
-DocumentPath=Project Outputs for M-Mewtwo_MCUrev1\RFQ\MCU.GM13
-DItemRevisionGUID=
-
-[GeneratedDocument20]
-DocumentPath=Project Outputs for M-Mewtwo_MCUrev1\Master BMS STM32 RFQ\MCU.GM15
-DItemRevisionGUID=
-
-[GeneratedDocument21]
-DocumentPath=Project Outputs for M-Mewtwo_MCUrev1\RFQ\MCU.GM15
-DItemRevisionGUID=
-
-[GeneratedDocument22]
-DocumentPath=Project Outputs for M-Mewtwo_MCUrev1\Master BMS STM32 RFQ\MCU.GPB
-DItemRevisionGUID=
-
-[GeneratedDocument23]
-DocumentPath=Project Outputs for M-Mewtwo_MCUrev1\RFQ\MCU.GPB
-DItemRevisionGUID=
-
-[GeneratedDocument24]
-DocumentPath=Project Outputs for M-Mewtwo_MCUrev1\Master BMS STM32 RFQ\MCU.GPT
-DItemRevisionGUID=
-
-[GeneratedDocument25]
-DocumentPath=Project Outputs for M-Mewtwo_MCUrev1\RFQ\MCU.GPT
-DItemRevisionGUID=
-
-[GeneratedDocument26]
-DocumentPath=Project Outputs for M-Mewtwo_MCUrev1\Master BMS STM32 RFQ\MCU.GTL
-DItemRevisionGUID=
-
-[GeneratedDocument27]
-DocumentPath=Project Outputs for M-Mewtwo_MCUrev1\RFQ\MCU.GTL
-DItemRevisionGUID=
-
-[GeneratedDocument28]
-DocumentPath=Project Outputs for M-Mewtwo_MCUrev1\Master BMS STM32 RFQ\MCU.GTO
-DItemRevisionGUID=
-
-[GeneratedDocument29]
-DocumentPath=Project Outputs for M-Mewtwo_MCUrev1\RFQ\MCU.GTO
-DItemRevisionGUID=
-
-[GeneratedDocument30]
-DocumentPath=Project Outputs for M-Mewtwo_MCUrev1\Master BMS STM32 RFQ\MCU.GTP
-DItemRevisionGUID=
-
-[GeneratedDocument31]
-DocumentPath=Project Outputs for M-Mewtwo_MCUrev1\RFQ\MCU.GTP
-DItemRevisionGUID=
-
-[GeneratedDocument32]
-DocumentPath=Project Outputs for M-Mewtwo_MCUrev1\Master BMS STM32 RFQ\MCU.GTS
-DItemRevisionGUID=
-
-[GeneratedDocument33]
-DocumentPath=Project Outputs for M-Mewtwo_MCUrev1\RFQ\MCU.GTS
-DItemRevisionGUID=
-
-[GeneratedDocument34]
-DocumentPath=Project Outputs for M-Mewtwo_MCUrev1\Master BMS STM32 RFQ\MCU.LDP
-DItemRevisionGUID=
-
-[GeneratedDocument35]
-DocumentPath=Project Outputs for M-Mewtwo_MCUrev1\RFQ\MCU.LDP
-DItemRevisionGUID=
-
-[GeneratedDocument36]
-DocumentPath=Project Outputs for M-Mewtwo_MCUrev1\Master BMS STM32 RFQ\MCU.REP
-DItemRevisionGUID=
-
-[GeneratedDocument37]
-DocumentPath=Project Outputs for M-Mewtwo_MCUrev1\RFQ\MCU.REP
-DItemRevisionGUID=
-
-[GeneratedDocument38]
-DocumentPath=Project Outputs for M-Mewtwo_MCUrev1\Master BMS STM32 RFQ\MCU.RUL
-DItemRevisionGUID=
-
-[GeneratedDocument39]
-DocumentPath=Project Outputs for M-Mewtwo_MCUrev1\RFQ\MCU.RUL
-DItemRevisionGUID=
-
-[GeneratedDocument40]
-DocumentPath=Project Outputs for M-Mewtwo_MCUrev1\Master BMS STM32 RFQ\MCU.TXT
-DItemRevisionGUID=
-
-[GeneratedDocument41]
-DocumentPath=Project Outputs for M-Mewtwo_MCUrev1\RFQ\MCU.TXT
 DItemRevisionGUID=
 
 [Configuration1]
@@ -580,7 +403,7 @@ OutputDefault20=0
 [OutputGroup2]
 Name=Simulator Outputs
 Description=
-TargetPrinter=Samsung ML-2010 (USB001)
+TargetPrinter=Canon MX430 series Printer
 PrinterOptions=Record=PrinterOptions|Copies=1|Duplex=1|TrueTypeOptions=3|Collate=1|PrintJobKind=1|PrintWhat=1
 
 [OutputGroup3]
