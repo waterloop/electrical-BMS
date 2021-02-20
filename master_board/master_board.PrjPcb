@@ -38,24 +38,7 @@ PrefsVaultGUID=
 PrefsRevisionGUID=
 
 [Document1]
-DocumentPath=..\..\..\master bms\electrical-BMS-Buck_Converter\Buck_Converter\Buck_Schematic.schdoc
-AnnotationEnabled=1
-AnnotateStartValue=1
-AnnotationIndexControlEnabled=0
-AnnotateSuffix=
-AnnotateScope=All
-AnnotateOrder=0
-DoLibraryUpdate=1
-DoDatabaseUpdate=1
-ClassGenCCAutoEnabled=1
-ClassGenCCAutoRoomEnabled=1
-ClassGenNCAutoScope=None
-DItemRevisionGUID=
-GenerateClassCluster=0
-DocumentUniqueId=XZZGVFUF
-
-[Document2]
-DocumentPath=..\..\..\master bms\electrical-BMS-LTC2949\LTC2949 Test Board\LTC2949_Main.SchDoc
+DocumentPath=schematics\Buck_Schematic.schdoc
 AnnotationEnabled=1
 AnnotateStartValue=1
 AnnotationIndexControlEnabled=0
@@ -69,10 +52,27 @@ ClassGenCCAutoRoomEnabled=1
 ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
-DocumentUniqueId=XCPYYDKJ
+DocumentUniqueId=XZZGVFUF
+
+[Document2]
+DocumentPath=LT8315TestBoard.SchDoc
+AnnotationEnabled=1
+AnnotateStartValue=1
+AnnotationIndexControlEnabled=0
+AnnotateSuffix=
+AnnotateScope=All
+AnnotateOrder=-1
+DoLibraryUpdate=1
+DoDatabaseUpdate=1
+ClassGenCCAutoEnabled=1
+ClassGenCCAutoRoomEnabled=1
+ClassGenNCAutoScope=None
+DItemRevisionGUID=
+GenerateClassCluster=0
+DocumentUniqueId=FNFEQGMM
 
 [Document3]
-DocumentPath=..\..\..\master bms\electrical-BMS-LT8316-respin\LT8316 respin\LT8316.SchDoc
+DocumentPath=LT8316.SchDoc
 AnnotationEnabled=1
 AnnotateStartValue=1
 AnnotationIndexControlEnabled=0
@@ -89,7 +89,7 @@ GenerateClassCluster=0
 DocumentUniqueId=MHUYXXOY
 
 [Document4]
-DocumentPath=..\..\..\master bms\electrical-BMS-LTC2949\LTC2949 Test Board\LTC2949.SchDoc
+DocumentPath=LTC2949.SchDoc
 AnnotationEnabled=1
 AnnotateStartValue=1
 AnnotationIndexControlEnabled=0
@@ -106,7 +106,92 @@ GenerateClassCluster=0
 DocumentUniqueId=PBPHYXKT
 
 [Document5]
-DocumentPath=..\..\..\master bms\electrical-BMS-LTC2949\LTC2949 Test Board\Connectors.SchDoc
+DocumentPath=LTC2949_Main.SchDoc
+AnnotationEnabled=1
+AnnotateStartValue=1
+AnnotationIndexControlEnabled=0
+AnnotateSuffix=
+AnnotateScope=All
+AnnotateOrder=-1
+DoLibraryUpdate=1
+DoDatabaseUpdate=1
+ClassGenCCAutoEnabled=1
+ClassGenCCAutoRoomEnabled=1
+ClassGenNCAutoScope=None
+DItemRevisionGUID=
+GenerateClassCluster=0
+DocumentUniqueId=XCPYYDKJ
+
+[Document6]
+DocumentPath=MCU.SchDoc
+AnnotationEnabled=1
+AnnotateStartValue=1
+AnnotationIndexControlEnabled=0
+AnnotateSuffix=
+AnnotateScope=All
+AnnotateOrder=-1
+DoLibraryUpdate=1
+DoDatabaseUpdate=1
+ClassGenCCAutoEnabled=1
+ClassGenCCAutoRoomEnabled=1
+ClassGenNCAutoScope=None
+DItemRevisionGUID=
+GenerateClassCluster=0
+DocumentUniqueId=CIJRVJMC
+
+[Document7]
+DocumentPath=ISO_SPI.SchDoc
+AnnotationEnabled=1
+AnnotateStartValue=1
+AnnotationIndexControlEnabled=0
+AnnotateSuffix=
+AnnotateScope=All
+AnnotateOrder=-1
+DoLibraryUpdate=1
+DoDatabaseUpdate=1
+ClassGenCCAutoEnabled=1
+ClassGenCCAutoRoomEnabled=1
+ClassGenNCAutoScope=None
+DItemRevisionGUID=
+GenerateClassCluster=0
+DocumentUniqueId=QQJNCXLF
+
+[Document8]
+DocumentPath=Headers.SchDoc
+AnnotationEnabled=1
+AnnotateStartValue=1
+AnnotationIndexControlEnabled=0
+AnnotateSuffix=
+AnnotateScope=All
+AnnotateOrder=-1
+DoLibraryUpdate=1
+DoDatabaseUpdate=1
+ClassGenCCAutoEnabled=1
+ClassGenCCAutoRoomEnabled=1
+ClassGenNCAutoScope=None
+DItemRevisionGUID=
+GenerateClassCluster=0
+DocumentUniqueId=APZPKILT
+
+[Document9]
+DocumentPath=Precharge_schematic.SchDoc
+AnnotationEnabled=1
+AnnotateStartValue=1
+AnnotationIndexControlEnabled=0
+AnnotateSuffix=
+AnnotateScope=All
+AnnotateOrder=-1
+DoLibraryUpdate=1
+DoDatabaseUpdate=1
+ClassGenCCAutoEnabled=1
+ClassGenCCAutoRoomEnabled=1
+ClassGenNCAutoScope=None
+DItemRevisionGUID=
+GenerateClassCluster=0
+DocumentUniqueId=JTQQZEQW
+
+[Document10]
+DocumentPath=Connectors.SchDoc
 AnnotationEnabled=1
 AnnotateStartValue=1
 AnnotationIndexControlEnabled=0
@@ -122,48 +207,14 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=VGCDIHGG
 
-[Document6]
-DocumentPath=..\..\..\master bms\electrical-BMS-LTC8315\LTC8315 Test Board\LT8315TestBoard.SchDoc
+[Document11]
+DocumentPath=STM32405RG.SchDoc
 AnnotationEnabled=1
 AnnotateStartValue=1
 AnnotationIndexControlEnabled=0
 AnnotateSuffix=
 AnnotateScope=All
-AnnotateOrder=0
-DoLibraryUpdate=1
-DoDatabaseUpdate=1
-ClassGenCCAutoEnabled=1
-ClassGenCCAutoRoomEnabled=1
-ClassGenNCAutoScope=None
-DItemRevisionGUID=
-GenerateClassCluster=0
-DocumentUniqueId=FNFEQGMM
-
-[Document7]
-DocumentPath=..\..\..\master bms\electrical-BMS-Precharge\Precharge\Precharge_circuit\Precharge_schematic.SchDoc
-AnnotationEnabled=1
-AnnotateStartValue=1
-AnnotationIndexControlEnabled=0
-AnnotateSuffix=
-AnnotateScope=All
-AnnotateOrder=0
-DoLibraryUpdate=1
-DoDatabaseUpdate=1
-ClassGenCCAutoEnabled=1
-ClassGenCCAutoRoomEnabled=1
-ClassGenNCAutoScope=None
-DItemRevisionGUID=
-GenerateClassCluster=0
-DocumentUniqueId=JTQQZEQW
-
-[Document8]
-DocumentPath=..\..\..\master bms\electrical-BMS-STM32F405-LTC6820\STM32F405 & LTC6820 Test Board\STM32405RG.SchDoc
-AnnotationEnabled=1
-AnnotateStartValue=1
-AnnotationIndexControlEnabled=0
-AnnotateSuffix=
-AnnotateScope=All
-AnnotateOrder=1
+AnnotateOrder=-1
 DoLibraryUpdate=1
 DoDatabaseUpdate=1
 ClassGenCCAutoEnabled=1
@@ -172,57 +223,6 @@ ClassGenNCAutoScope=None
 DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=IRZXZEVL
-
-[Document9]
-DocumentPath=..\..\..\master bms\electrical-BMS-STM32F405-LTC6820\STM32F405 & LTC6820 Test Board\Headers.SchDoc
-AnnotationEnabled=1
-AnnotateStartValue=1
-AnnotationIndexControlEnabled=0
-AnnotateSuffix=
-AnnotateScope=All
-AnnotateOrder=2
-DoLibraryUpdate=1
-DoDatabaseUpdate=1
-ClassGenCCAutoEnabled=1
-ClassGenCCAutoRoomEnabled=1
-ClassGenNCAutoScope=None
-DItemRevisionGUID=
-GenerateClassCluster=0
-DocumentUniqueId=APZPKILT
-
-[Document10]
-DocumentPath=..\..\..\master bms\electrical-BMS-STM32F405-LTC6820\STM32F405 & LTC6820 Test Board\ISO_SPI.SchDoc
-AnnotationEnabled=1
-AnnotateStartValue=1
-AnnotationIndexControlEnabled=0
-AnnotateSuffix=
-AnnotateScope=All
-AnnotateOrder=4
-DoLibraryUpdate=1
-DoDatabaseUpdate=1
-ClassGenCCAutoEnabled=1
-ClassGenCCAutoRoomEnabled=1
-ClassGenNCAutoScope=None
-DItemRevisionGUID=
-GenerateClassCluster=0
-DocumentUniqueId=QQJNCXLF
-
-[Document11]
-DocumentPath=..\..\..\master bms\electrical-BMS-STM32F405-LTC6820\STM32F405 & LTC6820 Test Board\MCU.SchDoc
-AnnotationEnabled=1
-AnnotateStartValue=1
-AnnotationIndexControlEnabled=0
-AnnotateSuffix=
-AnnotateScope=All
-AnnotateOrder=0
-DoLibraryUpdate=1
-DoDatabaseUpdate=1
-ClassGenCCAutoEnabled=1
-ClassGenCCAutoRoomEnabled=1
-ClassGenNCAutoScope=None
-DItemRevisionGUID=
-GenerateClassCluster=0
-DocumentUniqueId=CIJRVJMC
 
 [Document12]
 DocumentPath=master_schematic.SchDoc
@@ -242,7 +242,7 @@ GenerateClassCluster=0
 DocumentUniqueId=VCJUACLJ
 
 [Document13]
-DocumentPath=..\..\..\master bms\electrical-BMS-STM32F405-LTC6820\STM32F405 & LTC6820 Test Board\STM32405RG.Harness
+DocumentPath=ISO_SPI.Harness
 AnnotationEnabled=1
 AnnotateStartValue=1
 AnnotationIndexControlEnabled=0
@@ -259,7 +259,7 @@ GenerateClassCluster=0
 DocumentUniqueId=
 
 [Document14]
-DocumentPath=..\..\..\master bms\electrical-BMS-STM32F405-LTC6820\STM32F405 & LTC6820 Test Board\Headers.Harness
+DocumentPath=Headers.Harness
 AnnotationEnabled=1
 AnnotateStartValue=1
 AnnotationIndexControlEnabled=0
@@ -276,7 +276,7 @@ GenerateClassCluster=0
 DocumentUniqueId=
 
 [Document15]
-DocumentPath=..\..\..\master bms\electrical-BMS-STM32F405-LTC6820\STM32F405 & LTC6820 Test Board\ISO_SPI.Harness
+DocumentPath=STM32405RG.Harness
 AnnotationEnabled=1
 AnnotateStartValue=1
 AnnotationIndexControlEnabled=0
