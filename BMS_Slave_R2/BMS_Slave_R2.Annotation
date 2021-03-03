@@ -1,0 +1,14 @@
+[DesignatorManager]
+LogicalDesignator0=D2
+LogicalPartID0=1
+DocumentName0=Voltage Sensing.SchDoc
+ChannelName0=CELL1_SENSE
+UniqueID0=\RWWUNURO\MBIDHNVF
+PhysicalDesignator0=D2_CELL1_SENSE
+PhysicalDesignatorLocked0=0
+
+[SheetNumberManager]
+SheetNumberOrder=Display Order
+SheetNumberMethod=Increasing
+
+
