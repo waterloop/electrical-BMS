@@ -41,7 +41,7 @@ PrefsRevisionGUID=
 DocumentPath=schematics\STM32405RG.SchDoc
 AnnotationEnabled=1
 AnnotateStartValue=1
-AnnotationIndexControlEnabled=0
+AnnotationIndexControlEnabled=1
 AnnotateSuffix=
 AnnotateScope=All
 AnnotateOrder=0
@@ -55,27 +55,10 @@ GenerateClassCluster=0
 DocumentUniqueId=IRZXZEVL
 
 [Document2]
-DocumentPath=schematics\Precharge_schematic.SchDoc
-AnnotationEnabled=1
-AnnotateStartValue=1
-AnnotationIndexControlEnabled=0
-AnnotateSuffix=
-AnnotateScope=All
-AnnotateOrder=1
-DoLibraryUpdate=1
-DoDatabaseUpdate=1
-ClassGenCCAutoEnabled=1
-ClassGenCCAutoRoomEnabled=1
-ClassGenNCAutoScope=None
-DItemRevisionGUID=
-GenerateClassCluster=0
-DocumentUniqueId=JTQQZEQW
-
-[Document3]
 DocumentPath=schematics\ISO_SPI.SchDoc
 AnnotationEnabled=1
 AnnotateStartValue=1
-AnnotationIndexControlEnabled=0
+AnnotationIndexControlEnabled=1
 AnnotateSuffix=
 AnnotateScope=All
 AnnotateOrder=7
@@ -88,11 +71,11 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=QQJNCXLF
 
-[Document4]
+[Document3]
 DocumentPath=schematics\Buck_Schematic.schdoc
 AnnotationEnabled=1
 AnnotateStartValue=1
-AnnotationIndexControlEnabled=0
+AnnotationIndexControlEnabled=1
 AnnotateSuffix=
 AnnotateScope=All
 AnnotateOrder=10
@@ -105,11 +88,11 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=XZZGVFUF
 
-[Document5]
+[Document4]
 DocumentPath=master_schematic.SchDoc
 AnnotationEnabled=1
 AnnotateStartValue=1
-AnnotationIndexControlEnabled=0
+AnnotationIndexControlEnabled=1
 AnnotateSuffix=
 AnnotateScope=All
 AnnotateOrder=11
@@ -122,7 +105,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=VCJUACLJ
 
-[Document6]
+[Document5]
 DocumentPath=ISO_SPI.Harness
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -139,7 +122,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=
 
-[Document7]
+[Document6]
 DocumentPath=Headers.Harness
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -156,7 +139,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=
 
-[Document8]
+[Document7]
 DocumentPath=STM32405RG.Harness
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -173,7 +156,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=
 
-[Document9]
+[Document8]
 DocumentPath=schematics\ISO_SPI.Harness
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -190,7 +173,7 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=
 
-[Document10]
+[Document9]
 DocumentPath=schematics\STM32405RG.Harness
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -207,11 +190,11 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=
 
-[Document11]
+[Document10]
 DocumentPath=schematics\ADC_Input_Buffering.SchDoc
 AnnotationEnabled=1
 AnnotateStartValue=1
-AnnotationIndexControlEnabled=0
+AnnotationIndexControlEnabled=1
 AnnotateSuffix=
 AnnotateScope=All
 AnnotateOrder=12
@@ -224,11 +207,11 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=BXOXKXFI
 
-[Document12]
+[Document11]
 DocumentPath=schematics\Sensing.SchDoc
 AnnotationEnabled=1
 AnnotateStartValue=1
-AnnotationIndexControlEnabled=0
+AnnotationIndexControlEnabled=1
 AnnotateSuffix=
 AnnotateScope=All
 AnnotateOrder=13
@@ -241,31 +224,14 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=QUBXOWBD
 
-[Document13]
-DocumentPath=schematics\Temperature_Monitoring.SchDoc
-AnnotationEnabled=1
-AnnotateStartValue=1
-AnnotationIndexControlEnabled=0
-AnnotateSuffix=
-AnnotateScope=All
-AnnotateOrder=14
-DoLibraryUpdate=1
-DoDatabaseUpdate=1
-ClassGenCCAutoEnabled=1
-ClassGenCCAutoRoomEnabled=1
-ClassGenNCAutoScope=None
-DItemRevisionGUID=
-GenerateClassCluster=0
-DocumentUniqueId=YZRRDWBZ
-
-[Document14]
+[Document12]
 DocumentPath=schematics\Delibird.SchDoc
 AnnotationEnabled=1
 AnnotateStartValue=1
-AnnotationIndexControlEnabled=0
+AnnotationIndexControlEnabled=1
 AnnotateSuffix=
 AnnotateScope=All
-AnnotateOrder=-1
+AnnotateOrder=15
 DoLibraryUpdate=1
 DoDatabaseUpdate=1
 ClassGenCCAutoEnabled=1
@@ -275,14 +241,14 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=KPGJKWZT
 
-[Document15]
-DocumentPath=schematics\Voltage_Division.SchDoc
+[Document13]
+DocumentPath=schematics\MC_Cap_Sensing.SchDoc
 AnnotationEnabled=1
 AnnotateStartValue=1
-AnnotationIndexControlEnabled=0
+AnnotationIndexControlEnabled=1
 AnnotateSuffix=
 AnnotateScope=All
-AnnotateOrder=-1
+AnnotateOrder=16
 DoLibraryUpdate=1
 DoDatabaseUpdate=1
 ClassGenCCAutoEnabled=1
