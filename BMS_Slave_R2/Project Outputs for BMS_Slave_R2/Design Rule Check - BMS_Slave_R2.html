@@ -1,0 +1,523 @@
+<html>
+<head>
+<META http-equiv="Content-Type" content="text/html">
+<style type="text/css">
+		h1, h2, h3, h4, h5, h6 {
+			font-family : segoe ui;
+			color : black;
+			background-color : #EDE7D9;
+			padding: 0.3em;
+		}
+
+		h1 {
+			font-size: 1.2em;
+		}		
+
+		h2 {
+			font-size: 1.2em;
+		}
+
+		body {
+			font-family : segoe ui;
+		}
+
+		td, th {
+			padding: 0.5em;
+			text-align : left;
+			width: 10em;
+		}
+		th {
+			background-color : #EEEEEE;
+
+		}
+		th.column1, td.column1 {
+			text-align: left;
+			width : auto;
+		}
+		table {
+			width : 100%;
+			font-size: 0.9em;
+		}
+
+		.DRC_summary_header {
+			padding-bottom : 0.1em;
+			border : 0px solid black;
+			width: 100%;
+			align: left;
+		}
+
+		.DRC_summary_header_col1,
+		.DRC_summary_header_col2, 
+		.DRC_summary_header_col3 {
+			color : black;
+			font-size:100%;
+			padding : 0em;
+			padding-top : 0.2em;
+			padding-bottom 0.2em;
+			border : 0px solid black;
+			vertical-align: top;
+			text-align: left;
+		}
+
+		.DRC_summary_header_col1 {
+			font-weight: bold;
+			width: 8em;
+		}
+
+		.DRC_summary_header_col2 {
+			width: 0.1em;
+		
+		}
+
+		.DRC_summary_header_col3 {
+			width : auto;
+		}
+
+		.header_holder {
+		    Width = 100%;
+		    border = 0px solid green;
+		    padding = 0;
+		}
+
+
+		.front_matter, .front_matter_column1, .front_matter_column2, .front_matter_column3
+		{
+			left : 0;
+			top : 0;
+			padding: 0em;
+			padding-top : 0.1em;
+			border : 0px solid black;
+			width : 100%;
+			vertical-align: top;
+			text-align: left;
+		}
+
+		.front_matter_column1 {
+			width : 8em;
+			font-weight: bold;
+		}
+
+		.front_matter_column2 {
+			width: 0.1em;
+		}
+
+		.front_matter_column3 {
+			width : auto;
+		}
+
+		.total_column1, .total_column {
+			font-weight : bold;
+		}
+		.total_column1 {
+			text-align : left;
+		}
+		.warning, .error {
+			color : red;
+			font-weight : bold;
+		}
+		tr.onmouseout_odd {
+			background-color : #white;
+		}
+		tr.onmouseout_even { 
+			background-color : #FAFAFA;
+		}
+		tr.onmouseover_odd, tr.onmouseover_even { 
+			background-color : #EEEEEE;
+		} 
+		a:link, a:visited, .q a:link,.q a:active,.q {
+			color: #21489e; 
+		}
+		a:link.callback, a:visited.callback { 
+			color: #21489e;
+		}
+		a:link.customize, a:visited.customize {
+			color: #C0C0C0;
+			position: absolute; 
+			right: 10px;
+		}	
+		p.contents_level1 {
+			font-weight : bold;
+			font-size : 110%;
+			margin : 0.5em;
+		}
+		p.contents_level2 {
+			position : relative;
+			left : 20px;
+			margin : 0.5em;
+		}
+	</style><script type="text/javascript">
+		function coordToMils(coord) {
+			var number = coord / 10000;
+			
+			if (number != number.toFixed(3))
+				number = number.toFixed(3);
+
+			return number + 'mil'
+		}
+
+		function coordToMM(coord) {
+			var number = 0.0254 * coord / 10000;
+			
+			if (number != number.toFixed(4))
+				number = number.toFixed(4);
+			
+			return number + 'mm'
+		}
+	
+		function convertCoord(coordNode, units) {
+			for (var i = 0; i < coordNode.childNodes.length; i++) {
+				coordNode.removeChild(coordNode.childNodes[i]);
+			}
+
+			var coord = coordNode.getAttribute('value');
+			if (coord != null) {
+				if (units == 'mm') {
+					textNode = document.createTextNode(coordToMM(coord));
+					coordNode.appendChild(textNode);
+				} else if (units == 'mil') {
+					textNode = document.createTextNode(coordToMils(coord));		
+					coordNode.appendChild(textNode);	
+				}
+			}
+		}
+	
+		function convertUnits(unitNode, units) {
+			for (var i = 0; i < unitNode.childNodes.length; i++) {
+				unitNode.removeChild(unitNode.childNodes[i]);		
+			}
+		
+			textNode = document.createTextNode(units); 
+			unitNode.appendChild(textNode);
+		}
+	
+		function changeUnits(radio_input, units) {
+			if (radio_input.checked) {
+			
+				var elements = document.getElementsByName('coordinate');
+				if (elements) {
+					for (var i = 0; i < elements.length; i++) {
+						convertCoord(elements[i], units);
+					}
+				}
+	
+				var elements = document.getElementsByName('units');
+				if (elements) {
+					for (var i = 0; i < elements.length; i++) {
+						convertUnits(elements[i], units);
+					}
+				}
+			}
+		}
+	</script><title>Design Rule Verification Report</title>
+</head>
+<body onload=""><img ALT="Altium" src="
+			file://C:\Users\Public\Documents\Altium\AD21\Templates\AD_logo.png
+		"><h1>Design Rule Verification Report</h1>
+<table class="header_holder">
+<td class="column1">
+<table class="front_matter">
+<tr class="front_matter">
+<td class="front_matter_column1">Date:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3">2021-03-13</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Time:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3">3:13:37 PM</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Elapsed Time:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3">00:00:01</td>
+</tr>
+<tr class="front_matter">
+<td class="front_matter_column1">Filename:</td>
+<td class="front_matter_column2"></td>
+<td class="front_matter_column3"><a href="file:///C:\shared\Waterloop\slave\BMS_Slave_R2\BMS_Slave_R2.PcbDoc" class="file"><acronym title="C:\shared\Waterloop\slave\BMS_Slave_R2\BMS_Slave_R2.PcbDoc">C:\shared\Waterloop\slave\BMS_Slave_R2\BMS_Slave_R2.PcbDoc</acronym></a></td>
+</tr>
+</table>
+</td>
+<td class="column2">
+<table class="DRC_summary_header">
+<tr>
+<td class="DRC_summary_header_col1">Warnings:</td>
+<td class="DRC_summary_header_col2"></td>
+<td class="DRC_summary_header_col3">0</td></tr>
+<tr>
+<td class="DRC_summary_header_col1">Rule Violations:</td>
+<td class="DRC_summary_header_col2"></td>
+<td class="DRC_summary_header_col3" style="color : red">61</td></tr>
+</table>
+</td>
+</table><a name="IDJ4DQMU4IC2GFPIM1Z3EYM4HREOYRVUANYPBBOBC1YUOY0FNYY4NM"><h2>Summary</h2></a><table>
+<tr>
+<th class="column1">Warnings</th>
+<th class="column2">Count</th>
+</tr>
+<tr>
+<td style="font-weight : bold; text-align : right" class="column1">Total</td>
+<td style="font-weight : bold" class="column2">0</td>
+</tr>
+</table><br><table>
+<tr>
+<th class="column1">Rule Violations</th>
+<th class="column2">Count</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDJ3OAMV2PYRB2G5DKEHBTQ4IYPLVK4SDI2SPQUPQI0YQ5N5ZW1CB">Clearance Constraint (Gap=8mil) (All),(All)</a></td>
+<td class="column2">61</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#ID4Y3C1HJQRDYZMFOPZU1C4CMLMD1RTWZTDOVMR0K0NRT453KGWDCK">Short-Circuit Constraint (Allowed=No) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDVN1CTAOX4UK0OHYJPB5X1UVUGDZJ5CISFRXK21H14ZWSNZERUAL">Un-Routed Net Constraint ( (All) )</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDJQYPTANVYSWMIUVDGL3J44H0GD1S2WQSQ0CAW5JOTJL3SUWXA2MM">Modified Polygon (Allow modified: No), (Allow shelved: No)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#ID330VDP45UJL3JKIB3AK4MFBNRPBTFTHXJ1KL5RPYE0SYPP040BUP">Width Constraint (Min=8mil) (Max=1000mil) (Preferred=8mil) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#ID0R5I1SJ5GJZYJNZM3SRA50WMLPA1DI4GYKI4IONXF5ZQABMPAGM">Power Plane Connect Rule(Direct Connect )(Expansion=20mil) (Conductor Width=10mil) (Air Gap=10mil) (Entries=4) (InPadClass('PowerPads'))</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDVL0PI3OHDE1UD1YR4FIXRC1LIHWQPPXXAVO3VVKDT0S0J3PXQUNL">Power Plane Connect Rule(Relief Connect )(Expansion=11.811mil) (Conductor Width=8mil) (Air Gap=8mil) (Entries=4) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDKTGGGYMZIOHBHMNV2AEPOFTJWCMIMMSX1ISCTQK4BCJXOQBXKQCP">Minimum Annular Ring (Minimum=3mil) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDIQ0OXUZU2O1GOEVAKVE1KJSSZN3YXI5I5DFWTVFRS1DJ12LALO0J">Hole Size Constraint (Min=11.811mil) (Max=248.031mil) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDJVFUA4F2ZK33OFI3B3RA4IE43KXUPNBQUTGONKHE4XD5NDWIE11I">Hole To Hole Clearance (Gap=9.842mil) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#ID31PEYUEK4D5DPNK5IPMLKSHAHIH5KZ4J2SPOMNH2Q4NE4NLOIH3I">Minimum Solder Mask Sliver (Gap=0mil) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDYJ41KBJYFITYILCU2B520L2BZK15WUQNAQPQ35OQVXXOFCWENTCO">Silk To Solder Mask (Clearance=5mil) (IsPad),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDNOFTXYKSNQDQIOLWXECAKOMACJVFUKH2OOMM1WCFD2QKLBMXRFIC">Silk to Silk (Clearance=0mil) (All),(All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#ID1QLMYCLCWJHJFZDWJ411UCAGSEJ1TSYWCRV5EIGRBNY54CHYDUE">Net Antennae (Tolerance=0mil) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="#IDY4FVQE02IMJRHXAIFACGKFMXEEIPLCG51HHKKXDAU1IJPFYBDA2G">Board Clearance Constraint (Gap=0mil) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="#IDEY34AYKGBI5HJXPA5ZOJJWFEZKPJUESIS4YOT4P34SDCPNPP4YMG">Height Constraint (Min=0mil) (Max=71497.938mil) (Prefered=500mil) (All)</a></td>
+<td class="column2">0</td>
+</tr>
+<tr>
+<td style="font-weight : bold; text-align : right" class="column1">Total</td>
+<td style="font-weight : bold" class="column2">61</td>
+</tr>
+</table><br><a name="IDJ3OAMV2PYRB2G5DKEHBTQ4IYPLVK4SDI2SPQUPQI0YQ5N5ZW1CB"><table>
+<tr>
+<th style="text-align : left" colspan="1" class="rule">Clearance Constraint (Gap=8mil) (All),(All)</th>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\shared\Waterloop\slave\BMS_Slave_R2\BMS_Slave_R2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2730.22mil|Location2.X=2739.47mil|Location1.Y=871.611mil|Location2.Y=880.861mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\shared\Waterloop\slave\BMS_Slave_R2\BMS_Slave_R2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2730.22mil|Location2.X=2739.47mil|Location1.Y=871.611mil|Location2.Y=880.861mil|Absolute=True">Clearance Constraint: (7.874mil &lt; 8mil) Between Pad U1-1(2763.881mil,866.394mil) on Top Layer And Pad U1-2(2763.881mil,886.079mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\shared\Waterloop\slave\BMS_Slave_R2\BMS_Slave_R2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2730.22mil|Location2.X=2739.47mil|Location1.Y=1048.777mil|Location2.Y=1058.027mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\shared\Waterloop\slave\BMS_Slave_R2\BMS_Slave_R2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2730.22mil|Location2.X=2739.47mil|Location1.Y=1048.777mil|Location2.Y=1058.027mil|Absolute=True">Clearance Constraint: (7.874mil &lt; 8mil) Between Pad U1-10(2763.881mil,1043.559mil) on Top Layer And Pad U1-11(2763.881mil,1063.244mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\shared\Waterloop\slave\BMS_Slave_R2\BMS_Slave_R2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2730.22mil|Location2.X=2739.47mil|Location1.Y=1029.091mil|Location2.Y=1038.341mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\shared\Waterloop\slave\BMS_Slave_R2\BMS_Slave_R2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2730.22mil|Location2.X=2739.47mil|Location1.Y=1029.091mil|Location2.Y=1038.341mil|Absolute=True">Clearance Constraint: (7.874mil &lt; 8mil) Between Pad U1-10(2763.881mil,1043.559mil) on Top Layer And Pad U1-9(2763.881mil,1023.874mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\shared\Waterloop\slave\BMS_Slave_R2\BMS_Slave_R2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2730.22mil|Location2.X=2739.47mil|Location1.Y=1068.462mil|Location2.Y=1077.712mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\shared\Waterloop\slave\BMS_Slave_R2\BMS_Slave_R2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2730.22mil|Location2.X=2739.47mil|Location1.Y=1068.462mil|Location2.Y=1077.712mil|Absolute=True">Clearance Constraint: (7.874mil &lt; 8mil) Between Pad U1-11(2763.881mil,1063.244mil) on Top Layer And Pad U1-12(2763.881mil,1082.929mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\shared\Waterloop\slave\BMS_Slave_R2\BMS_Slave_R2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2730.22mil|Location2.X=2739.47mil|Location1.Y=1088.147mil|Location2.Y=1097.397mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\shared\Waterloop\slave\BMS_Slave_R2\BMS_Slave_R2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2730.22mil|Location2.X=2739.47mil|Location1.Y=1088.147mil|Location2.Y=1097.397mil|Absolute=True">Clearance Constraint: (7.874mil &lt; 8mil) Between Pad U1-12(2763.881mil,1082.929mil) on Top Layer And Pad U1-13(2763.881mil,1102.614mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\shared\Waterloop\slave\BMS_Slave_R2\BMS_Slave_R2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2730.22mil|Location2.X=2739.47mil|Location1.Y=1107.832mil|Location2.Y=1117.082mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\shared\Waterloop\slave\BMS_Slave_R2\BMS_Slave_R2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2730.22mil|Location2.X=2739.47mil|Location1.Y=1107.832mil|Location2.Y=1117.082mil|Absolute=True">Clearance Constraint: (7.874mil &lt; 8mil) Between Pad U1-13(2763.881mil,1102.614mil) on Top Layer And Pad U1-14(2763.881mil,1122.299mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\shared\Waterloop\slave\BMS_Slave_R2\BMS_Slave_R2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2730.22mil|Location2.X=2739.47mil|Location1.Y=1127.517mil|Location2.Y=1136.767mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\shared\Waterloop\slave\BMS_Slave_R2\BMS_Slave_R2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2730.22mil|Location2.X=2739.47mil|Location1.Y=1127.517mil|Location2.Y=1136.767mil|Absolute=True">Clearance Constraint: (7.874mil &lt; 8mil) Between Pad U1-14(2763.881mil,1122.299mil) on Top Layer And Pad U1-15(2763.881mil,1141.984mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\shared\Waterloop\slave\BMS_Slave_R2\BMS_Slave_R2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2730.22mil|Location2.X=2739.47mil|Location1.Y=1147.202mil|Location2.Y=1156.452mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\shared\Waterloop\slave\BMS_Slave_R2\BMS_Slave_R2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2730.22mil|Location2.X=2739.47mil|Location1.Y=1147.202mil|Location2.Y=1156.452mil|Absolute=True">Clearance Constraint: (7.874mil &lt; 8mil) Between Pad U1-15(2763.881mil,1141.984mil) on Top Layer And Pad U1-16(2763.881mil,1161.669mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\shared\Waterloop\slave\BMS_Slave_R2\BMS_Slave_R2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2671.145mil|Location2.X=2680.395mil|Location1.Y=1206.277mil|Location2.Y=1215.527mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\shared\Waterloop\slave\BMS_Slave_R2\BMS_Slave_R2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2671.145mil|Location2.X=2680.395mil|Location1.Y=1206.277mil|Location2.Y=1215.527mil|Absolute=True">Clearance Constraint: (7.874mil &lt; 8mil) Between Pad U1-17(2685.613mil,1239.937mil) on Top Layer And Pad U1-18(2665.928mil,1239.937mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\shared\Waterloop\slave\BMS_Slave_R2\BMS_Slave_R2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2651.46mil|Location2.X=2660.71mil|Location1.Y=1206.277mil|Location2.Y=1215.527mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\shared\Waterloop\slave\BMS_Slave_R2\BMS_Slave_R2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2651.46mil|Location2.X=2660.71mil|Location1.Y=1206.277mil|Location2.Y=1215.527mil|Absolute=True">Clearance Constraint: (7.874mil &lt; 8mil) Between Pad U1-18(2665.928mil,1239.937mil) on Top Layer And Pad U1-19(2646.243mil,1239.937mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\shared\Waterloop\slave\BMS_Slave_R2\BMS_Slave_R2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2631.775mil|Location2.X=2641.025mil|Location1.Y=1206.277mil|Location2.Y=1215.527mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\shared\Waterloop\slave\BMS_Slave_R2\BMS_Slave_R2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2631.775mil|Location2.X=2641.025mil|Location1.Y=1206.277mil|Location2.Y=1215.527mil|Absolute=True">Clearance Constraint: (7.874mil &lt; 8mil) Between Pad U1-19(2646.243mil,1239.937mil) on Top Layer And Pad U1-20(2626.558mil,1239.937mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\shared\Waterloop\slave\BMS_Slave_R2\BMS_Slave_R2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2730.22mil|Location2.X=2739.47mil|Location1.Y=891.296mil|Location2.Y=900.546mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\shared\Waterloop\slave\BMS_Slave_R2\BMS_Slave_R2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2730.22mil|Location2.X=2739.47mil|Location1.Y=891.296mil|Location2.Y=900.546mil|Absolute=True">Clearance Constraint: (7.874mil &lt; 8mil) Between Pad U1-2(2763.881mil,886.079mil) on Top Layer And Pad U1-3(2763.881mil,905.764mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\shared\Waterloop\slave\BMS_Slave_R2\BMS_Slave_R2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2612.09mil|Location2.X=2621.34mil|Location1.Y=1206.277mil|Location2.Y=1215.527mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\shared\Waterloop\slave\BMS_Slave_R2\BMS_Slave_R2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2612.09mil|Location2.X=2621.34mil|Location1.Y=1206.277mil|Location2.Y=1215.527mil|Absolute=True">Clearance Constraint: (7.874mil &lt; 8mil) Between Pad U1-20(2626.558mil,1239.937mil) on Top Layer And Pad U1-21(2606.873mil,1239.937mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\shared\Waterloop\slave\BMS_Slave_R2\BMS_Slave_R2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2592.405mil|Location2.X=2601.655mil|Location1.Y=1206.277mil|Location2.Y=1215.527mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\shared\Waterloop\slave\BMS_Slave_R2\BMS_Slave_R2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2592.405mil|Location2.X=2601.655mil|Location1.Y=1206.277mil|Location2.Y=1215.527mil|Absolute=True">Clearance Constraint: (7.874mil &lt; 8mil) Between Pad U1-21(2606.873mil,1239.937mil) on Top Layer And Pad U1-22(2587.188mil,1239.937mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\shared\Waterloop\slave\BMS_Slave_R2\BMS_Slave_R2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2572.72mil|Location2.X=2581.97mil|Location1.Y=1206.277mil|Location2.Y=1215.527mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\shared\Waterloop\slave\BMS_Slave_R2\BMS_Slave_R2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2572.72mil|Location2.X=2581.97mil|Location1.Y=1206.277mil|Location2.Y=1215.527mil|Absolute=True">Clearance Constraint: (7.874mil &lt; 8mil) Between Pad U1-22(2587.188mil,1239.937mil) on Top Layer And Pad U1-23(2567.503mil,1239.937mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\shared\Waterloop\slave\BMS_Slave_R2\BMS_Slave_R2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2553.035mil|Location2.X=2562.285mil|Location1.Y=1206.277mil|Location2.Y=1215.527mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\shared\Waterloop\slave\BMS_Slave_R2\BMS_Slave_R2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2553.035mil|Location2.X=2562.285mil|Location1.Y=1206.277mil|Location2.Y=1215.527mil|Absolute=True">Clearance Constraint: (7.874mil &lt; 8mil) Between Pad U1-23(2567.503mil,1239.937mil) on Top Layer And Pad U1-24(2547.818mil,1239.937mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\shared\Waterloop\slave\BMS_Slave_R2\BMS_Slave_R2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2533.35mil|Location2.X=2542.6mil|Location1.Y=1206.277mil|Location2.Y=1215.527mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\shared\Waterloop\slave\BMS_Slave_R2\BMS_Slave_R2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2533.35mil|Location2.X=2542.6mil|Location1.Y=1206.277mil|Location2.Y=1215.527mil|Absolute=True">Clearance Constraint: (7.874mil &lt; 8mil) Between Pad U1-24(2547.818mil,1239.937mil) on Top Layer And Pad U1-25(2528.133mil,1239.937mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\shared\Waterloop\slave\BMS_Slave_R2\BMS_Slave_R2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2513.665mil|Location2.X=2522.915mil|Location1.Y=1206.277mil|Location2.Y=1215.527mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\shared\Waterloop\slave\BMS_Slave_R2\BMS_Slave_R2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2513.665mil|Location2.X=2522.915mil|Location1.Y=1206.277mil|Location2.Y=1215.527mil|Absolute=True">Clearance Constraint: (7.874mil &lt; 8mil) Between Pad U1-25(2528.133mil,1239.937mil) on Top Layer And Pad U1-26(2508.447mil,1239.937mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\shared\Waterloop\slave\BMS_Slave_R2\BMS_Slave_R2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2493.98mil|Location2.X=2503.23mil|Location1.Y=1206.277mil|Location2.Y=1215.527mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\shared\Waterloop\slave\BMS_Slave_R2\BMS_Slave_R2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2493.98mil|Location2.X=2503.23mil|Location1.Y=1206.277mil|Location2.Y=1215.527mil|Absolute=True">Clearance Constraint: (7.874mil &lt; 8mil) Between Pad U1-26(2508.447mil,1239.937mil) on Top Layer And Pad U1-27(2488.762mil,1239.937mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\shared\Waterloop\slave\BMS_Slave_R2\BMS_Slave_R2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2474.295mil|Location2.X=2483.545mil|Location1.Y=1206.277mil|Location2.Y=1215.527mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\shared\Waterloop\slave\BMS_Slave_R2\BMS_Slave_R2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2474.295mil|Location2.X=2483.545mil|Location1.Y=1206.277mil|Location2.Y=1215.527mil|Absolute=True">Clearance Constraint: (7.874mil &lt; 8mil) Between Pad U1-27(2488.762mil,1239.937mil) on Top Layer And Pad U1-28(2469.077mil,1239.937mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\shared\Waterloop\slave\BMS_Slave_R2\BMS_Slave_R2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2454.61mil|Location2.X=2463.86mil|Location1.Y=1206.277mil|Location2.Y=1215.527mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\shared\Waterloop\slave\BMS_Slave_R2\BMS_Slave_R2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2454.61mil|Location2.X=2463.86mil|Location1.Y=1206.277mil|Location2.Y=1215.527mil|Absolute=True">Clearance Constraint: (7.874mil &lt; 8mil) Between Pad U1-28(2469.077mil,1239.937mil) on Top Layer And Pad U1-29(2449.392mil,1239.937mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\shared\Waterloop\slave\BMS_Slave_R2\BMS_Slave_R2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2434.925mil|Location2.X=2444.175mil|Location1.Y=1206.277mil|Location2.Y=1215.527mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\shared\Waterloop\slave\BMS_Slave_R2\BMS_Slave_R2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2434.925mil|Location2.X=2444.175mil|Location1.Y=1206.277mil|Location2.Y=1215.527mil|Absolute=True">Clearance Constraint: (7.874mil &lt; 8mil) Between Pad U1-29(2449.392mil,1239.937mil) on Top Layer And Pad U1-30(2429.707mil,1239.937mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\shared\Waterloop\slave\BMS_Slave_R2\BMS_Slave_R2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2730.22mil|Location2.X=2739.47mil|Location1.Y=910.981mil|Location2.Y=920.231mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\shared\Waterloop\slave\BMS_Slave_R2\BMS_Slave_R2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2730.22mil|Location2.X=2739.47mil|Location1.Y=910.981mil|Location2.Y=920.231mil|Absolute=True">Clearance Constraint: (7.874mil &lt; 8mil) Between Pad U1-3(2763.881mil,905.764mil) on Top Layer And Pad U1-4(2763.881mil,925.449mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\shared\Waterloop\slave\BMS_Slave_R2\BMS_Slave_R2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2415.24mil|Location2.X=2424.49mil|Location1.Y=1206.277mil|Location2.Y=1215.527mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\shared\Waterloop\slave\BMS_Slave_R2\BMS_Slave_R2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2415.24mil|Location2.X=2424.49mil|Location1.Y=1206.277mil|Location2.Y=1215.527mil|Absolute=True">Clearance Constraint: (7.874mil &lt; 8mil) Between Pad U1-30(2429.707mil,1239.937mil) on Top Layer And Pad U1-31(2410.022mil,1239.937mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\shared\Waterloop\slave\BMS_Slave_R2\BMS_Slave_R2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2395.555mil|Location2.X=2404.805mil|Location1.Y=1206.277mil|Location2.Y=1215.527mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\shared\Waterloop\slave\BMS_Slave_R2\BMS_Slave_R2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2395.555mil|Location2.X=2404.805mil|Location1.Y=1206.277mil|Location2.Y=1215.527mil|Absolute=True">Clearance Constraint: (7.874mil &lt; 8mil) Between Pad U1-31(2410.022mil,1239.937mil) on Top Layer And Pad U1-32(2390.337mil,1239.937mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\shared\Waterloop\slave\BMS_Slave_R2\BMS_Slave_R2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2278.409mil|Location2.X=2287.659mil|Location1.Y=1147.202mil|Location2.Y=1156.452mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\shared\Waterloop\slave\BMS_Slave_R2\BMS_Slave_R2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2278.409mil|Location2.X=2287.659mil|Location1.Y=1147.202mil|Location2.Y=1156.452mil|Absolute=True">Clearance Constraint: (7.874mil &lt; 8mil) Between Pad U1-33(2312.07mil,1161.669mil) on Top Layer And Pad U1-34(2312.07mil,1141.984mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\shared\Waterloop\slave\BMS_Slave_R2\BMS_Slave_R2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2278.409mil|Location2.X=2287.659mil|Location1.Y=1127.517mil|Location2.Y=1136.767mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\shared\Waterloop\slave\BMS_Slave_R2\BMS_Slave_R2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2278.409mil|Location2.X=2287.659mil|Location1.Y=1127.517mil|Location2.Y=1136.767mil|Absolute=True">Clearance Constraint: (7.874mil &lt; 8mil) Between Pad U1-34(2312.07mil,1141.984mil) on Top Layer And Pad U1-35(2312.07mil,1122.299mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\shared\Waterloop\slave\BMS_Slave_R2\BMS_Slave_R2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2278.409mil|Location2.X=2287.659mil|Location1.Y=1107.832mil|Location2.Y=1117.082mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\shared\Waterloop\slave\BMS_Slave_R2\BMS_Slave_R2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2278.409mil|Location2.X=2287.659mil|Location1.Y=1107.832mil|Location2.Y=1117.082mil|Absolute=True">Clearance Constraint: (7.874mil &lt; 8mil) Between Pad U1-35(2312.07mil,1122.299mil) on Top Layer And Pad U1-36(2312.07mil,1102.614mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\shared\Waterloop\slave\BMS_Slave_R2\BMS_Slave_R2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2278.409mil|Location2.X=2287.659mil|Location1.Y=1088.147mil|Location2.Y=1097.397mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\shared\Waterloop\slave\BMS_Slave_R2\BMS_Slave_R2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2278.409mil|Location2.X=2287.659mil|Location1.Y=1088.147mil|Location2.Y=1097.397mil|Absolute=True">Clearance Constraint: (7.874mil &lt; 8mil) Between Pad U1-36(2312.07mil,1102.614mil) on Top Layer And Pad U1-37(2312.07mil,1082.929mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\shared\Waterloop\slave\BMS_Slave_R2\BMS_Slave_R2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2278.409mil|Location2.X=2287.659mil|Location1.Y=1068.462mil|Location2.Y=1077.712mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\shared\Waterloop\slave\BMS_Slave_R2\BMS_Slave_R2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2278.409mil|Location2.X=2287.659mil|Location1.Y=1068.462mil|Location2.Y=1077.712mil|Absolute=True">Clearance Constraint: (7.874mil &lt; 8mil) Between Pad U1-37(2312.07mil,1082.929mil) on Top Layer And Pad U1-38(2312.07mil,1063.244mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\shared\Waterloop\slave\BMS_Slave_R2\BMS_Slave_R2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2278.409mil|Location2.X=2287.659mil|Location1.Y=1048.777mil|Location2.Y=1058.027mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\shared\Waterloop\slave\BMS_Slave_R2\BMS_Slave_R2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2278.409mil|Location2.X=2287.659mil|Location1.Y=1048.777mil|Location2.Y=1058.027mil|Absolute=True">Clearance Constraint: (7.874mil &lt; 8mil) Between Pad U1-38(2312.07mil,1063.244mil) on Top Layer And Pad U1-39(2312.07mil,1043.559mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\shared\Waterloop\slave\BMS_Slave_R2\BMS_Slave_R2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2278.409mil|Location2.X=2287.659mil|Location1.Y=1029.091mil|Location2.Y=1038.341mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\shared\Waterloop\slave\BMS_Slave_R2\BMS_Slave_R2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2278.409mil|Location2.X=2287.659mil|Location1.Y=1029.091mil|Location2.Y=1038.341mil|Absolute=True">Clearance Constraint: (7.874mil &lt; 8mil) Between Pad U1-39(2312.07mil,1043.559mil) on Top Layer And Pad U1-40(2312.07mil,1023.874mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\shared\Waterloop\slave\BMS_Slave_R2\BMS_Slave_R2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2730.22mil|Location2.X=2739.47mil|Location1.Y=930.666mil|Location2.Y=939.916mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\shared\Waterloop\slave\BMS_Slave_R2\BMS_Slave_R2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2730.22mil|Location2.X=2739.47mil|Location1.Y=930.666mil|Location2.Y=939.916mil|Absolute=True">Clearance Constraint: (7.874mil &lt; 8mil) Between Pad U1-4(2763.881mil,925.449mil) on Top Layer And Pad U1-5(2763.881mil,945.134mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\shared\Waterloop\slave\BMS_Slave_R2\BMS_Slave_R2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2278.409mil|Location2.X=2287.659mil|Location1.Y=1009.407mil|Location2.Y=1018.657mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\shared\Waterloop\slave\BMS_Slave_R2\BMS_Slave_R2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2278.409mil|Location2.X=2287.659mil|Location1.Y=1009.407mil|Location2.Y=1018.657mil|Absolute=True">Clearance Constraint: (7.874mil &lt; 8mil) Between Pad U1-40(2312.07mil,1023.874mil) on Top Layer And Pad U1-41(2312.07mil,1004.189mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\shared\Waterloop\slave\BMS_Slave_R2\BMS_Slave_R2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2278.409mil|Location2.X=2287.659mil|Location1.Y=989.721mil|Location2.Y=998.971mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\shared\Waterloop\slave\BMS_Slave_R2\BMS_Slave_R2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2278.409mil|Location2.X=2287.659mil|Location1.Y=989.721mil|Location2.Y=998.971mil|Absolute=True">Clearance Constraint: (7.874mil &lt; 8mil) Between Pad U1-41(2312.07mil,1004.189mil) on Top Layer And Pad U1-42(2312.07mil,984.504mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\shared\Waterloop\slave\BMS_Slave_R2\BMS_Slave_R2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2278.409mil|Location2.X=2287.659mil|Location1.Y=970.036mil|Location2.Y=979.286mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\shared\Waterloop\slave\BMS_Slave_R2\BMS_Slave_R2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2278.409mil|Location2.X=2287.659mil|Location1.Y=970.036mil|Location2.Y=979.286mil|Absolute=True">Clearance Constraint: (7.874mil &lt; 8mil) Between Pad U1-42(2312.07mil,984.504mil) on Top Layer And Pad U1-43(2312.07mil,964.819mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\shared\Waterloop\slave\BMS_Slave_R2\BMS_Slave_R2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2278.409mil|Location2.X=2287.659mil|Location1.Y=950.351mil|Location2.Y=959.601mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\shared\Waterloop\slave\BMS_Slave_R2\BMS_Slave_R2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2278.409mil|Location2.X=2287.659mil|Location1.Y=950.351mil|Location2.Y=959.601mil|Absolute=True">Clearance Constraint: (7.874mil &lt; 8mil) Between Pad U1-43(2312.07mil,964.819mil) on Top Layer And Pad U1-44(2312.07mil,945.134mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\shared\Waterloop\slave\BMS_Slave_R2\BMS_Slave_R2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2278.409mil|Location2.X=2287.659mil|Location1.Y=930.666mil|Location2.Y=939.916mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\shared\Waterloop\slave\BMS_Slave_R2\BMS_Slave_R2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2278.409mil|Location2.X=2287.659mil|Location1.Y=930.666mil|Location2.Y=939.916mil|Absolute=True">Clearance Constraint: (7.874mil &lt; 8mil) Between Pad U1-44(2312.07mil,945.134mil) on Top Layer And Pad U1-45(2312.07mil,925.449mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\shared\Waterloop\slave\BMS_Slave_R2\BMS_Slave_R2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2278.409mil|Location2.X=2287.659mil|Location1.Y=910.981mil|Location2.Y=920.231mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\shared\Waterloop\slave\BMS_Slave_R2\BMS_Slave_R2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2278.409mil|Location2.X=2287.659mil|Location1.Y=910.981mil|Location2.Y=920.231mil|Absolute=True">Clearance Constraint: (7.874mil &lt; 8mil) Between Pad U1-45(2312.07mil,925.449mil) on Top Layer And Pad U1-46(2312.07mil,905.764mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\shared\Waterloop\slave\BMS_Slave_R2\BMS_Slave_R2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2278.409mil|Location2.X=2287.659mil|Location1.Y=871.611mil|Location2.Y=880.861mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\shared\Waterloop\slave\BMS_Slave_R2\BMS_Slave_R2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2278.409mil|Location2.X=2287.659mil|Location1.Y=871.611mil|Location2.Y=880.861mil|Absolute=True">Clearance Constraint: (7.874mil &lt; 8mil) Between Pad U1-47(2312.07mil,886.079mil) on Top Layer And Pad U1-48(2312.07mil,866.394mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\shared\Waterloop\slave\BMS_Slave_R2\BMS_Slave_R2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2305.375mil|Location2.X=2314.625mil|Location1.Y=871.712mil|Location2.Y=880.962mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\shared\Waterloop\slave\BMS_Slave_R2\BMS_Slave_R2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2305.375mil|Location2.X=2314.625mil|Location1.Y=871.712mil|Location2.Y=880.962mil|Absolute=True">Clearance Constraint: (7.673mil &lt; 8mil) Between Pad U1-47(2312.07mil,886.079mil) on Top Layer And Track (2310mil,815mil)(2310mil,860mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\shared\Waterloop\slave\BMS_Slave_R2\BMS_Slave_R2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2395.555mil|Location2.X=2404.805mil|Location1.Y=754.466mil|Location2.Y=763.716mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\shared\Waterloop\slave\BMS_Slave_R2\BMS_Slave_R2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2395.555mil|Location2.X=2404.805mil|Location1.Y=754.466mil|Location2.Y=763.716mil|Absolute=True">Clearance Constraint: (7.874mil &lt; 8mil) Between Pad U1-49(2390.337mil,788.126mil) on Top Layer And Pad U1-50(2410.022mil,788.126mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\shared\Waterloop\slave\BMS_Slave_R2\BMS_Slave_R2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2730.22mil|Location2.X=2739.47mil|Location1.Y=950.351mil|Location2.Y=959.601mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\shared\Waterloop\slave\BMS_Slave_R2\BMS_Slave_R2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2730.22mil|Location2.X=2739.47mil|Location1.Y=950.351mil|Location2.Y=959.601mil|Absolute=True">Clearance Constraint: (7.874mil &lt; 8mil) Between Pad U1-5(2763.881mil,945.134mil) on Top Layer And Pad U1-6(2763.881mil,964.819mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\shared\Waterloop\slave\BMS_Slave_R2\BMS_Slave_R2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2415.24mil|Location2.X=2424.49mil|Location1.Y=754.466mil|Location2.Y=763.716mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\shared\Waterloop\slave\BMS_Slave_R2\BMS_Slave_R2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2415.24mil|Location2.X=2424.49mil|Location1.Y=754.466mil|Location2.Y=763.716mil|Absolute=True">Clearance Constraint: (7.874mil &lt; 8mil) Between Pad U1-50(2410.022mil,788.126mil) on Top Layer And Pad U1-51(2429.707mil,788.126mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\shared\Waterloop\slave\BMS_Slave_R2\BMS_Slave_R2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2434.925mil|Location2.X=2444.175mil|Location1.Y=754.466mil|Location2.Y=763.716mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\shared\Waterloop\slave\BMS_Slave_R2\BMS_Slave_R2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2434.925mil|Location2.X=2444.175mil|Location1.Y=754.466mil|Location2.Y=763.716mil|Absolute=True">Clearance Constraint: (7.874mil &lt; 8mil) Between Pad U1-51(2429.707mil,788.126mil) on Top Layer And Pad U1-52(2449.392mil,788.126mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\shared\Waterloop\slave\BMS_Slave_R2\BMS_Slave_R2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2454.61mil|Location2.X=2463.86mil|Location1.Y=754.466mil|Location2.Y=763.716mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\shared\Waterloop\slave\BMS_Slave_R2\BMS_Slave_R2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2454.61mil|Location2.X=2463.86mil|Location1.Y=754.466mil|Location2.Y=763.716mil|Absolute=True">Clearance Constraint: (7.874mil &lt; 8mil) Between Pad U1-52(2449.392mil,788.126mil) on Top Layer And Pad U1-53(2469.077mil,788.126mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\shared\Waterloop\slave\BMS_Slave_R2\BMS_Slave_R2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2493.98mil|Location2.X=2503.23mil|Location1.Y=754.466mil|Location2.Y=763.716mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\shared\Waterloop\slave\BMS_Slave_R2\BMS_Slave_R2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2493.98mil|Location2.X=2503.23mil|Location1.Y=754.466mil|Location2.Y=763.716mil|Absolute=True">Clearance Constraint: (7.874mil &lt; 8mil) Between Pad U1-54(2488.762mil,788.126mil) on Top Layer And Pad U1-55(2508.447mil,788.126mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\shared\Waterloop\slave\BMS_Slave_R2\BMS_Slave_R2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2513.665mil|Location2.X=2522.915mil|Location1.Y=754.466mil|Location2.Y=763.716mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\shared\Waterloop\slave\BMS_Slave_R2\BMS_Slave_R2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2513.665mil|Location2.X=2522.915mil|Location1.Y=754.466mil|Location2.Y=763.716mil|Absolute=True">Clearance Constraint: (7.874mil &lt; 8mil) Between Pad U1-55(2508.447mil,788.126mil) on Top Layer And Pad U1-56(2528.133mil,788.126mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\shared\Waterloop\slave\BMS_Slave_R2\BMS_Slave_R2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2533.35mil|Location2.X=2542.6mil|Location1.Y=754.466mil|Location2.Y=763.716mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\shared\Waterloop\slave\BMS_Slave_R2\BMS_Slave_R2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2533.35mil|Location2.X=2542.6mil|Location1.Y=754.466mil|Location2.Y=763.716mil|Absolute=True">Clearance Constraint: (7.874mil &lt; 8mil) Between Pad U1-56(2528.133mil,788.126mil) on Top Layer And Pad U1-57(2547.818mil,788.126mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\shared\Waterloop\slave\BMS_Slave_R2\BMS_Slave_R2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2553.035mil|Location2.X=2562.285mil|Location1.Y=754.466mil|Location2.Y=763.716mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\shared\Waterloop\slave\BMS_Slave_R2\BMS_Slave_R2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2553.035mil|Location2.X=2562.285mil|Location1.Y=754.466mil|Location2.Y=763.716mil|Absolute=True">Clearance Constraint: (7.874mil &lt; 8mil) Between Pad U1-57(2547.818mil,788.126mil) on Top Layer And Pad U1-58(2567.503mil,788.126mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\shared\Waterloop\slave\BMS_Slave_R2\BMS_Slave_R2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2572.72mil|Location2.X=2581.97mil|Location1.Y=754.466mil|Location2.Y=763.716mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\shared\Waterloop\slave\BMS_Slave_R2\BMS_Slave_R2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2572.72mil|Location2.X=2581.97mil|Location1.Y=754.466mil|Location2.Y=763.716mil|Absolute=True">Clearance Constraint: (7.874mil &lt; 8mil) Between Pad U1-58(2567.503mil,788.126mil) on Top Layer And Pad U1-59(2587.188mil,788.126mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\shared\Waterloop\slave\BMS_Slave_R2\BMS_Slave_R2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2730.22mil|Location2.X=2739.47mil|Location1.Y=970.036mil|Location2.Y=979.286mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\shared\Waterloop\slave\BMS_Slave_R2\BMS_Slave_R2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2730.22mil|Location2.X=2739.47mil|Location1.Y=970.036mil|Location2.Y=979.286mil|Absolute=True">Clearance Constraint: (7.874mil &lt; 8mil) Between Pad U1-6(2763.881mil,964.819mil) on Top Layer And Pad U1-7(2763.881mil,984.504mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\shared\Waterloop\slave\BMS_Slave_R2\BMS_Slave_R2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2612.09mil|Location2.X=2621.34mil|Location1.Y=754.466mil|Location2.Y=763.716mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\shared\Waterloop\slave\BMS_Slave_R2\BMS_Slave_R2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2612.09mil|Location2.X=2621.34mil|Location1.Y=754.466mil|Location2.Y=763.716mil|Absolute=True">Clearance Constraint: (7.874mil &lt; 8mil) Between Pad U1-60(2606.873mil,788.126mil) on Top Layer And Pad U1-61(2626.558mil,788.126mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\shared\Waterloop\slave\BMS_Slave_R2\BMS_Slave_R2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2631.775mil|Location2.X=2641.025mil|Location1.Y=754.466mil|Location2.Y=763.716mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\shared\Waterloop\slave\BMS_Slave_R2\BMS_Slave_R2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2631.775mil|Location2.X=2641.025mil|Location1.Y=754.466mil|Location2.Y=763.716mil|Absolute=True">Clearance Constraint: (7.874mil &lt; 8mil) Between Pad U1-61(2626.558mil,788.126mil) on Top Layer And Pad U1-62(2646.243mil,788.126mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\shared\Waterloop\slave\BMS_Slave_R2\BMS_Slave_R2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2651.46mil|Location2.X=2660.71mil|Location1.Y=754.466mil|Location2.Y=763.716mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\shared\Waterloop\slave\BMS_Slave_R2\BMS_Slave_R2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2651.46mil|Location2.X=2660.71mil|Location1.Y=754.466mil|Location2.Y=763.716mil|Absolute=True">Clearance Constraint: (7.874mil &lt; 8mil) Between Pad U1-62(2646.243mil,788.126mil) on Top Layer And Pad U1-63(2665.928mil,788.126mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\shared\Waterloop\slave\BMS_Slave_R2\BMS_Slave_R2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2671.145mil|Location2.X=2680.395mil|Location1.Y=754.466mil|Location2.Y=763.716mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\shared\Waterloop\slave\BMS_Slave_R2\BMS_Slave_R2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2671.145mil|Location2.X=2680.395mil|Location1.Y=754.466mil|Location2.Y=763.716mil|Absolute=True">Clearance Constraint: (7.874mil &lt; 8mil) Between Pad U1-63(2665.928mil,788.126mil) on Top Layer And Pad U1-64(2685.613mil,788.126mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\shared\Waterloop\slave\BMS_Slave_R2\BMS_Slave_R2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2730.22mil|Location2.X=2739.47mil|Location1.Y=989.721mil|Location2.Y=998.971mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\shared\Waterloop\slave\BMS_Slave_R2\BMS_Slave_R2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2730.22mil|Location2.X=2739.47mil|Location1.Y=989.721mil|Location2.Y=998.971mil|Absolute=True">Clearance Constraint: (7.874mil &lt; 8mil) Between Pad U1-7(2763.881mil,984.504mil) on Top Layer And Pad U1-8(2763.881mil,1004.189mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\shared\Waterloop\slave\BMS_Slave_R2\BMS_Slave_R2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2730.22mil|Location2.X=2739.47mil|Location1.Y=1009.407mil|Location2.Y=1018.657mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\shared\Waterloop\slave\BMS_Slave_R2\BMS_Slave_R2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2730.22mil|Location2.X=2739.47mil|Location1.Y=1009.407mil|Location2.Y=1018.657mil|Absolute=True">Clearance Constraint: (7.874mil &lt; 8mil) Between Pad U1-8(2763.881mil,1004.189mil) on Top Layer And Pad U1-9(2763.881mil,1023.874mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\shared\Waterloop\slave\BMS_Slave_R2\BMS_Slave_R2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2380.61mil|Location2.X=2389.86mil|Location1.Y=903.637mil|Location2.Y=912.887mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\shared\Waterloop\slave\BMS_Slave_R2\BMS_Slave_R2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2380.61mil|Location2.X=2389.86mil|Location1.Y=903.637mil|Location2.Y=912.887mil|Absolute=True">Clearance Constraint: (6.707mil &lt; 8mil) Between Track (2350.394mil,866.394mil)(2384mil,900mil) on Top Layer And Track (2388.32mil,928.886mil)(2408.886mil,928.886mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_even" onmouseover="className = 'onmouseover_even'" onmouseout="className = 'onmouseout_even'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\shared\Waterloop\slave\BMS_Slave_R2\BMS_Slave_R2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2383.695mil|Location2.X=2392.945mil|Location1.Y=903.568mil|Location2.Y=912.818mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\shared\Waterloop\slave\BMS_Slave_R2\BMS_Slave_R2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2383.695mil|Location2.X=2392.945mil|Location1.Y=903.568mil|Location2.Y=912.818mil|Absolute=True">Clearance Constraint: (6.386mil &lt; 8mil) Between Track (2384mil,900mil)(2486mil,900mil) on Top Layer And Track (2388.32mil,928.886mil)(2408.886mil,928.886mil) on Top Layer </acronym></a><br></td>
+</tr>
+<tr class="onmouseout_odd" onmouseover="className = 'onmouseover_odd'" onmouseout="className = 'onmouseout_odd'">
+<td class="column1"><a href="dxpprocess://PCB:Zoom?document=C:\shared\Waterloop\slave\BMS_Slave_R2\BMS_Slave_R2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2404.261mil|Location2.X=2413.511mil|Location1.Y=903.568mil|Location2.Y=912.818mil|Absolute=True" class="callback"><acronym title="dxpprocess://PCB:Zoom?document=C:\shared\Waterloop\slave\BMS_Slave_R2\BMS_Slave_R2.PcbDoc;viewname=PCBEditor;Action=AREA_DYNAMICZOOM|Location1.X=2404.261mil|Location2.X=2413.511mil|Location1.Y=903.568mil|Location2.Y=912.818mil|Absolute=True">Clearance Constraint: (6.386mil &lt; 8mil) Between Track (2384mil,900mil)(2486mil,900mil) on Top Layer And Track (2408.886mil,928.886mil)(2415.455mil,935.455mil) on Top Layer </acronym></a><br></td>
+</tr>
+</table></a><hr color="#EEEEEE"><a href="#top" style="font-size: 0.9em">Back to top</a><br><br></body>
+</html>
