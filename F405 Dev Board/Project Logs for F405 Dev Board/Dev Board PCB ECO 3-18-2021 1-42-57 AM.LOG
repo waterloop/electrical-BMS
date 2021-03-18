@@ -1,0 +1,25 @@
+Removed Pin From Net: NetName=ISO-SPI_P Pin=P2-1
+Removed Pin From Net: NetName=ISO-SPI_N Pin=P2-2
+Removed Pin From Net: NetName=TX Pin=P3-1
+Removed Pin From Net: NetName=RESET Pin=P3-3
+Removed Pin From Net: NetName=SWDIO Pin=P3-4
+Removed Pin From Net: NetName=SWCLK Pin=P3-5
+Removed Member From Class: ClassName=MCU Member=MISO
+Removed Member From Class: ClassName=MCU Member=MOSI
+Removed Member From Class: ClassName=MCU Member=SCK
+Added Component: Designator=P?(HDR1X2)
+Added Component: Designator=TP1(Test Point)
+Added Component: Designator=TP2(Test Point)
+Added Component: Designator=TP3(Test Point)
+Added Pin To Net: NetName=RESET Pin=P3-1
+Added Pin To Net: NetName=TX Pin=P3-3
+Added Pin To Net: NetName=SWCLK Pin=P3-4
+Added Pin To Net: NetName=SWDIO Pin=P3-5
+Added Pin To Net: NetName=ISO-SPI_P Pin=P?-1
+Added Pin To Net: NetName=ISO-SPI_N Pin=P?-2
+Added Member To Class: ClassName=Master Member=Component P? ISO-SPI
+Added Member To Class: ClassName=MCU Member=Component TP1 CLOCK
+Added Member To Class: ClassName=MCU Member=Component TP2 MISO
+Added Member To Class: ClassName=MCU Member=Component TP3 MOSI
+Added Room: Name=Master
+Added Room: Name=MCU

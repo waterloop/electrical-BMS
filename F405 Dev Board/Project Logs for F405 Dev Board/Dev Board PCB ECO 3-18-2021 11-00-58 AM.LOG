@@ -1,0 +1,11 @@
+Removed Pin From Net: NetName=ISO-SPI_P Pin=T1-6
+Removed Pin From Net: NetName=ISO-SPI_N Pin=T1-7
+Change Component Designator: OldDesignator=P? NewDesignator=P4
+Added Pin To Net: NetName=ISO-SPI_N Pin=T1-9
+Added Pin To Net: NetName=ISO-SPI_P Pin=T1-10
+Added Pin To Net: NetName=NetTP1_0 Pin=U2-21
+Added Pin To Net: NetName=NetTP1_0 Pin=U4-4
+Added Net: Name=NetTP1_0
+Added Pin To Net: NetName=NetTP3_0 Pin=U2-23
+Added Pin To Net: NetName=NetTP3_0 Pin=U4-2
+Added Net: Name=NetTP3_0
