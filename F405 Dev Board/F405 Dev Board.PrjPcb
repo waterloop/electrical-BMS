@@ -31,7 +31,7 @@ ReportSuppressedErrorsInMessages=0
 FSMCodingStyle=eFMSDropDownList_OneProcess
 FSMEncodingStyle=eFMSDropDownList_OneHot
 IsProjectConflictPreventionWarningsEnabled=0
-OutputPath=
+OutputPath=Project Outputs for F405 Dev Board
 LogFolderPath=
 ManagedProjectGUID=
 IncludeDesignInRelease=0
@@ -262,23 +262,6 @@ GenerateClassCluster=0
 DocumentUniqueId=NOMKXCKO
 
 [Document14]
-DocumentPath=JLC.OutJob
-AnnotationEnabled=1
-AnnotateStartValue=1
-AnnotationIndexControlEnabled=0
-AnnotateSuffix=
-AnnotateScope=All
-AnnotateOrder=-1
-DoLibraryUpdate=1
-DoDatabaseUpdate=1
-ClassGenCCAutoEnabled=1
-ClassGenCCAutoRoomEnabled=1
-ClassGenNCAutoScope=None
-DItemRevisionGUID=
-GenerateClassCluster=0
-DocumentUniqueId=
-
-[Document15]
 DocumentPath=Master.Harness
 AnnotationEnabled=1
 AnnotateStartValue=1
@@ -295,8 +278,25 @@ DItemRevisionGUID=
 GenerateClassCluster=0
 DocumentUniqueId=
 
-[Document16]
+[Document15]
 DocumentPath=..\electrical-AltiumLibraries\Libraries\Embedded\Embedded.SchLib
+AnnotationEnabled=1
+AnnotateStartValue=1
+AnnotationIndexControlEnabled=0
+AnnotateSuffix=
+AnnotateScope=All
+AnnotateOrder=-1
+DoLibraryUpdate=1
+DoDatabaseUpdate=1
+ClassGenCCAutoEnabled=1
+ClassGenCCAutoRoomEnabled=1
+ClassGenNCAutoScope=None
+DItemRevisionGUID=
+GenerateClassCluster=0
+DocumentUniqueId=WRDMYSWK
+
+[Document16]
+DocumentPath=..\..\..\..\Downloads\JLCPCB.OutJob
 AnnotationEnabled=1
 AnnotateStartValue=1
 AnnotationIndexControlEnabled=0
@@ -316,6 +316,86 @@ DocumentUniqueId=
 DocumentPath=Project Outputs for F405 Dev Board\Design Rule Check - Dev Board.html
 DItemRevisionGUID=
 
+[GeneratedDocument2]
+DocumentPath=Project Outputs for F405 Dev Board\F405 Dev Board RFQ\Dev Board.DRR
+DItemRevisionGUID=
+
+[GeneratedDocument3]
+DocumentPath=Project Outputs for F405 Dev Board\F405 Dev Board RFQ\Dev Board.EXTREP
+DItemRevisionGUID=
+
+[GeneratedDocument4]
+DocumentPath=Project Outputs for F405 Dev Board\F405 Dev Board RFQ\Dev Board.GBL
+DItemRevisionGUID=
+
+[GeneratedDocument5]
+DocumentPath=Project Outputs for F405 Dev Board\F405 Dev Board RFQ\Dev Board.GBO
+DItemRevisionGUID=
+
+[GeneratedDocument6]
+DocumentPath=Project Outputs for F405 Dev Board\F405 Dev Board RFQ\Dev Board.GBP
+DItemRevisionGUID=
+
+[GeneratedDocument7]
+DocumentPath=Project Outputs for F405 Dev Board\F405 Dev Board RFQ\Dev Board.GBS
+DItemRevisionGUID=
+
+[GeneratedDocument8]
+DocumentPath=Project Outputs for F405 Dev Board\F405 Dev Board RFQ\Dev Board.GKO
+DItemRevisionGUID=
+
+[GeneratedDocument9]
+DocumentPath=Project Outputs for F405 Dev Board\F405 Dev Board RFQ\Dev Board.GM1
+DItemRevisionGUID=
+
+[GeneratedDocument10]
+DocumentPath=Project Outputs for F405 Dev Board\F405 Dev Board RFQ\Dev Board.GM13
+DItemRevisionGUID=
+
+[GeneratedDocument11]
+DocumentPath=Project Outputs for F405 Dev Board\F405 Dev Board RFQ\Dev Board.GM15
+DItemRevisionGUID=
+
+[GeneratedDocument12]
+DocumentPath=Project Outputs for F405 Dev Board\F405 Dev Board RFQ\Dev Board.GPB
+DItemRevisionGUID=
+
+[GeneratedDocument13]
+DocumentPath=Project Outputs for F405 Dev Board\F405 Dev Board RFQ\Dev Board.GPT
+DItemRevisionGUID=
+
+[GeneratedDocument14]
+DocumentPath=Project Outputs for F405 Dev Board\F405 Dev Board RFQ\Dev Board.GTL
+DItemRevisionGUID=
+
+[GeneratedDocument15]
+DocumentPath=Project Outputs for F405 Dev Board\F405 Dev Board RFQ\Dev Board.GTO
+DItemRevisionGUID=
+
+[GeneratedDocument16]
+DocumentPath=Project Outputs for F405 Dev Board\F405 Dev Board RFQ\Dev Board.GTP
+DItemRevisionGUID=
+
+[GeneratedDocument17]
+DocumentPath=Project Outputs for F405 Dev Board\F405 Dev Board RFQ\Dev Board.GTS
+DItemRevisionGUID=
+
+[GeneratedDocument18]
+DocumentPath=Project Outputs for F405 Dev Board\F405 Dev Board RFQ\Dev Board.LDP
+DItemRevisionGUID=
+
+[GeneratedDocument19]
+DocumentPath=Project Outputs for F405 Dev Board\F405 Dev Board RFQ\Dev Board.REP
+DItemRevisionGUID=
+
+[GeneratedDocument20]
+DocumentPath=Project Outputs for F405 Dev Board\F405 Dev Board RFQ\Dev Board.RUL
+DItemRevisionGUID=
+
+[GeneratedDocument21]
+DocumentPath=Project Outputs for F405 Dev Board\F405 Dev Board RFQ\Dev Board.TXT
+DItemRevisionGUID=
+
 [Configuration1]
 Name=Sources
 ParameterCount=0
@@ -327,7 +407,7 @@ ContentTypeGUID=CB6F2064-E317-11DF-B822-12313F0024A2
 ConfigurationType=Source
 
 [Generic_EDE]
-OutputDir=
+OutputDir=Project Outputs for F405 Dev Board
 
 [OutputGroup1]
 Name=Netlist Outputs
