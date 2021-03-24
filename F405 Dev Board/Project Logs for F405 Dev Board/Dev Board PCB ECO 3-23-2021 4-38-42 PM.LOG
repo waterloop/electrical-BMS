@@ -1,0 +1,4 @@
+Change Component Footprint: Designator=Q1 Old Footprint=SOT 23-3 New Footprint=SC70/SOT323
+Change Component Footprint: Designator=Q2 Old Footprint=SOT 23-3 New Footprint=SC70/SOT323
+Change Component Footprint: Designator=Q3 Old Footprint=SOT 23-3 New Footprint=SC70/SOT323
+Added Member To Class: ClassName=Master Member=Component C2 Capacitor - Nonpolarized
