@@ -1,12 +1,14 @@
-Output: NC Drill Files
-Type  : NC Drill
+Project Outputs Generation Report
+---------------------------------
+Start Output Generation At 12:29:08 AM On 3/25/2021
+
+Output: Export STEP
+Type  : ExportSTEP
 From  : PCB Document [Dev Board.PcbDoc]
-   Generated File[Dev Board.TXT]
-   Generated File[Dev Board.LDP]
-   Generated File[Dev Board.DRR]
+   Generated File[Dev Board.step]
 
 
-Files Generated   : 3
+Files Generated   : 1
 Documents Printed : 0
 
-Finished Output Generation At 5:22:40 PM On 3/23/2021
+Finished Output Generation At 12:29:14 AM On 3/25/2021
