@@ -1,0 +1,3 @@
+Added Component: Designator=U2(ABLS_4MHZ-K4T)
+Added Pin To Net: NetName=CLKI Pin=U2-2
+Added Member To Class: ClassName=MAIN IC Member=Component U2 ABLS-4.000MHZ-K4T
