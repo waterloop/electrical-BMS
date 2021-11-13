@@ -1,0 +1,64 @@
+Removed Pin From Net: NetName=AGND Pin=U1-26
+Change Component Designator: OldDesignator=C1 NewDesignator=C9
+Change Component Designator: OldDesignator=C2 NewDesignator=C5
+Change Component Designator: OldDesignator=C3 NewDesignator=C6
+Change Component Designator: OldDesignator=C5 NewDesignator=C7
+Change Component Designator: OldDesignator=C6 NewDesignator=C1
+Change Component Designator: OldDesignator=C7 NewDesignator=C2
+Change Component Designator: OldDesignator=C8 NewDesignator=C3
+Change Component Designator: OldDesignator=C9 NewDesignator=C8
+Change Component Designator: OldDesignator=J1 NewDesignator=J2
+Change Component Designator: OldDesignator=J2 NewDesignator=J1
+Change Component Designator: OldDesignator=P1 NewDesignator=P2
+Change Component Designator: OldDesignator=P2 NewDesignator=P3
+Change Component Designator: OldDesignator=P3 NewDesignator=P4
+Change Component Designator: OldDesignator=P4 NewDesignator=P5
+Change Component Designator: OldDesignator=P5 NewDesignator=P6
+Change Component Designator: OldDesignator=P6 NewDesignator=P7
+Change Component Designator: OldDesignator=P7 NewDesignator=P8
+Change Component Designator: OldDesignator=R1 NewDesignator=R10
+Change Component Designator: OldDesignator=R2 NewDesignator=R11
+Change Component Designator: OldDesignator=R3 NewDesignator=R8
+Change Component Designator: OldDesignator=R4 NewDesignator=R5
+Change Component Designator: OldDesignator=R5 NewDesignator=R6
+Change Component Designator: OldDesignator=R6 NewDesignator=R1
+Change Component Designator: OldDesignator=R7 NewDesignator=R2
+Change Component Designator: OldDesignator=R8 NewDesignator=R3
+Change Component Designator: OldDesignator=R9 NewDesignator=R4
+Change Component Designator: OldDesignator=R10 NewDesignator=R7
+Change Component Designator: OldDesignator=R11 NewDesignator=R9
+Change Component Designator: OldDesignator=TP1 NewDesignator=TP5
+Change Component Designator: OldDesignator=TP2 NewDesignator=TP1
+Change Component Designator: OldDesignator=TP3 NewDesignator=TP2
+Added Component: Designator=P1(HDR1X3)
+Added Component: Designator=TP3(Test Point)
+Added Component: Designator=TP4(Test Point)
+Added Pin To Net: NetName=AGND Pin=P1-1
+Added Pin To Net: NetName=NetR11_1 Pin=TP3-1
+Added Pin To Net: NetName=NetR11_2 Pin=TP4-1
+Change Net Name : Old Net Name=NetC2_1 New Net Name=NetC5_1
+Change Net Name : Old Net Name=NetC2_2 New Net Name=NetC5_2
+Change Net Name : Old Net Name=NetC3_1 New Net Name=NetC6_1
+Change Net Name : Old Net Name=NetC3_2 New Net Name=NetC6_2
+Change Net Name : Old Net Name=NetC5_1 New Net Name=NetC7_1
+Change Net Name : Old Net Name=NetJ1_1 New Net Name=NetJ2_1
+Change Net Name : Old Net Name=NetP1_2 New Net Name=NetP2_2
+Change Net Name : Old Net Name=NetP1_3 New Net Name=NetP2_3
+Change Net Name : Old Net Name=NetP2_1 New Net Name=NetP3_1
+Change Net Name : Old Net Name=NetP2_2 New Net Name=NetP3_2
+Change Net Name : Old Net Name=NetP6_2 New Net Name=NetP7_2
+Change Net Name : Old Net Name=NetR1_1 New Net Name=NetR10_1
+Change Net Name : Old Net Name=NetR1_2 New Net Name=NetR10_2
+Change Net Name : Old Net Name=NetR6_1 New Net Name=NetR1_1
+Change Net Name : Old Net Name=NetR7_1 New Net Name=NetR2_1
+Change Net Name : Old Net Name=NetR8_1 New Net Name=NetR3_1
+Change Net Name : Old Net Name=NetR11_1 New Net Name=NetR9_1
+Change Net Name : Old Net Name=NetR11_2 New Net Name=NetR9_2
+Added Pin To Net: NetName=IOVCC Pin=P1-2
+Added Pin To Net: NetName=IOVCC Pin=U1-26
+Added Net: Name=IOVCC
+Added Member To Class: ClassName=MAIN IC Member=Component P1 1x3 Header
+Added Member To Class: ClassName=MAIN IC Member=Component TP4 Test Point
+Added Member To Class: ClassName=MAIN IC Member=Component TP5 Test Point
+Added Room: Name=CONNECTORS
+Added Room: Name=MAIN IC
