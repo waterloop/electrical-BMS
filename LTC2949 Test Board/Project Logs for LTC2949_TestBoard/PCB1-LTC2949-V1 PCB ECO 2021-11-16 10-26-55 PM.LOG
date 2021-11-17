@@ -1,0 +1,68 @@
+Removed Pin From Net: NetName=AGND Pin=P1-1
+Removed Pin From Net: NetName=IOVCC Pin=P1-2
+Removed Pin From Net: NetName=AGND Pin=R11-2
+Removed Member From Class: ClassName=MAIN IC Member=P2
+Change Component Footprint: Designator=P1 Old Footprint=HDR1X3 New Footprint=HDR1X6
+Change Component Comment : Designator=P1 Old Comment=1x3 Header New Comment=1x6 Header
+Change component parameters: Designator = "R10" ("R10"); Footprint = "0603 - Resistor"; UniqueID = "\BFQVFPLH\IROREAJG" ("\BFQVFPLH\IROREAJG")
+Change component parameters (AddParameter): Name = "Manufacturer"; Value = ""; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Manufacturer Part Number"; Value = ""; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Rating"; Value = ""; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Supplier"; Value = ""; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Supplier Part Number"; Value = ""; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Value"; Value = "5k"; VariantName = "[No Variations]"
+Change component parameters: Designator = "R11" ("R11"); Footprint = "0603 - Resistor"; UniqueID = "\BFQVFPLH\ZVGLLJYK" ("\BFQVFPLH\ZVGLLJYK")
+Change component parameters (AddParameter): Name = "Manufacturer"; Value = ""; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Manufacturer Part Number"; Value = ""; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Rating"; Value = ""; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Supplier"; Value = ""; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Supplier Part Number"; Value = ""; VariantName = "[No Variations]"
+Change component parameters (AddParameter): Name = "Value"; Value = "3k"; VariantName = "[No Variations]"
+Added Component: Designator=P9(HDR1X3)
+Added Component: Designator=P10(HDR1X2)
+Added Component: Designator=R12(0603 - Resistor)
+Add component (AddParameter): Name = "Manufacturer"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer Part Number"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Rating"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Supplier"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Supplier Part Number"; Value = ""; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Value"; Value = "1k"; VariantName = "[No Variations]"
+Added Pin To Net: NetName=IOVCC Pin=R10-1
+Added Pin To Net: NetName=NetP1_1 Pin=P1-1
+Added Pin To Net: NetName=NetP1_1 Pin=U1-28
+Added Net: Name=NetP1_1
+Added Pin To Net: NetName=NetP1_2 Pin=P1-2
+Added Pin To Net: NetName=NetP1_2 Pin=U1-27
+Added Net: Name=NetP1_2
+Added Pin To Net: NetName=NetP1_3 Pin=P1-3
+Added Pin To Net: NetName=NetP1_3 Pin=P10-1
+Added Pin To Net: NetName=NetP1_3 Pin=R10-2
+Added Net: Name=NetP1_3
+Added Pin To Net: NetName=NetP1_4 Pin=P1-4
+Added Pin To Net: NetName=NetP1_4 Pin=P10-2
+Added Net: Name=NetP1_4
+Added Pin To Net: NetName=NetP1_5 Pin=P1-5
+Added Pin To Net: NetName=NetP1_5 Pin=R11-2
+Added Net: Name=NetP1_5
+Added Pin To Net: NetName=NetP1_6 Pin=P1-6
+Added Pin To Net: NetName=NetP1_6 Pin=R11-1
+Added Pin To Net: NetName=NetP1_6 Pin=R12-1
+Added Net: Name=NetP1_6
+Added Member To Class: ClassName=MAIN IC Member=Component C5 Nonpolarized Capacitor
+Added Member To Class: ClassName=MAIN IC Member=Component C6 Nonpolarized Capacitor
+Added Member To Class: ClassName=MAIN IC Member=Component C7 Nonpolarized Capacitor
+Added Member To Class: ClassName=MAIN IC Member=Component C9 Nonpolarized Capacitor
+Added Member To Class: ClassName=MAIN IC Member=Component J2 Header 2
+Added Member To Class: ClassName=MAIN IC Member=Component P1 1x6 Header
+Added Member To Class: ClassName=CONNECTORS Member=Component P3 1x2 Header
+Added Member To Class: ClassName=CONNECTORS Member=Component P4 1x12 Header
+Added Member To Class: ClassName=CONNECTORS Member=Component P5 CUI_TB002-500-02
+Added Member To Class: ClassName=CONNECTORS Member=Component P7 CUI_TB002-500-02
+Added Member To Class: ClassName=MAIN IC Member=Component R6 Resistor
+Added Member To Class: ClassName=MAIN IC Member=Component R7 Resistor
+Added Member To Class: ClassName=MAIN IC Member=Component R8 Resistor
+Added Member To Class: ClassName=MAIN IC Member=Component R11 Resistor
+Added Member To Class: ClassName=MAIN IC Member=Component TP2 Test Point
+Added Member To Class: ClassName=MAIN IC Member=Component TP3 Test Point
+Added Room: Name=CONNECTORS
+Added Room: Name=MAIN IC
