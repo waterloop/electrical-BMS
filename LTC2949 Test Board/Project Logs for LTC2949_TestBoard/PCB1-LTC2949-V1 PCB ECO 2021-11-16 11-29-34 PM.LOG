@@ -1,0 +1,13 @@
+Change Component Designator: OldDesignator=CLKO NewDesignator=TP5
+Change Component Designator: OldDesignator=I1M NewDesignator=TP2
+Change Component Designator: OldDesignator=I1P NewDesignator=TP1
+Change Component Designator: OldDesignator=IM NewDesignator=TP4
+Change Component Designator: OldDesignator=IP NewDesignator=TP3
+Added Pin To Net: NetName=AGND Pin=P9-1
+Added Pin To Net: NetName=IOVCC Pin=P9-2
+Added Pin To Net: NetName=AGND Pin=R12-2
+Added Member To Class: ClassName=MAIN IC Member=Component P9 1x3 Header
+Added Member To Class: ClassName=CONNECTORS Member=Component P10 1x2 Header
+Added Member To Class: ClassName=MAIN IC Member=Component R12 Resistor
+Added Room: Name=CONNECTORS
+Added Room: Name=MAIN IC
