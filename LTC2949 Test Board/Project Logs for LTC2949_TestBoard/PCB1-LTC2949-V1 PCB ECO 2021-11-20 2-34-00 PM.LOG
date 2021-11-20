@@ -1,0 +1,3 @@
+Change Component Footprint: Designator=J1 Old Footprint=CONN_TB002-500-X03_CUD New Footprint=HDR1X3
+Change Component Comment : Designator=J1 Old Comment=TB002-500-03BE New Comment=1x3 Header
+Change component parameters: Designator = "J1" ("J1"); Footprint = "CONN_TB002-500-X03_CUD"; UniqueID = "\BFQVFPLH\WGZDBQJT" ("\BFQVFPLH\WGZDBQJT")
