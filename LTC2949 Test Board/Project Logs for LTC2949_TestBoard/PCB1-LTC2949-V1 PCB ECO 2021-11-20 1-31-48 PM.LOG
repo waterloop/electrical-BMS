@@ -1,0 +1,15 @@
+Removed Pin From Net: NetName=AGND Pin=C9-1
+Removed Pin From Net: NetName=AGND Pin=P5-2
+Removed Pin From Net: NetName=AGND Pin=P6-2
+Removed Pin From Net: NetName=AGND Pin=R7-2
+Removed Pin From Net: NetName=AGND Pin=R8-1
+Removed Pin From Net: NetName=AGND Pin=U1-47
+Added Pin To Net: NetName=VBATM Pin=C9-1
+Added Pin To Net: NetName=VBATM Pin=P5-2
+Added Pin To Net: NetName=VBATM Pin=P6-2
+Added Pin To Net: NetName=VBATM Pin=R7-2
+Added Pin To Net: NetName=VBATM Pin=R8-1
+Added Pin To Net: NetName=VBATM Pin=U1-47
+Added Net: Name=VBATM
+Added Room: Name=CONNECTORS
+Added Room: Name=MAIN IC
