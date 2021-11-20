@@ -1,0 +1,7 @@
+Removed Pin From Net: NetName=VBATP Pin=P5-1
+Removed Pin From Net: NetName=VBATM Pin=P5-2
+Added Pin To Net: NetName=VBATM Pin=P5-1
+Added Pin To Net: NetName=VBATP Pin=P5-2
+Added Member To Class: ClassName=MAIN IC Member=Component P9 1x3 Header
+Added Room: Name=CONNECTORS
+Added Room: Name=MAIN IC
