@@ -1,0 +1,8 @@
+Added Component: Designator=*(LTC2949)
+Add component (AddParameter): Name = "Manufacturer"; Value = "Analog Devices"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Manufacturer Part Number"; Value = "LTC2949ILXE#3ZZPBF"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Supplier"; Value = "Mouser"; VariantName = "[No Variations]"
+Add component (AddParameter): Name = "Supplier Part Number"; Value = "584-2949ILXE3ZZPBF"; VariantName = "[No Variations]"
+Added Pin To Net: NetName=AGND Pin=*-47
+Added Member To Class: ClassName=MAIN IC Member=Component * LTC2949
+Added Room: Name=CONNECTORS
